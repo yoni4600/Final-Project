@@ -2,13 +2,11 @@
 
 import numpy as np
 import networkx as nx
-
 from .base import BaseCoarsening
-
 from util.data_structure import DisjoinSet
 from util.stackoverflow import find_best_trade_off
-
 from necython import Graph as CGraph, aco_walk
+
 
 class ACOCoarsening(BaseCoarsening):
 
@@ -23,7 +21,6 @@ class ACOCoarsening(BaseCoarsening):
 
     def merge(self, graph):
         m_graph = CGraph.from_nx_graph(graph)
-
         edge_and_weights = aco_walk(m_graph, self.num_walks, self.window_size, self.iterations, self.phe_power, self.evapo_rate, 20)
         edge_and_weights.sort(key=lambda item: item[2], reverse=True)
 

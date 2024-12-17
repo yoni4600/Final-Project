@@ -5,7 +5,7 @@ import networkx as nx
 
 from netorch.lookup import GraphLookup
 from netorch.dataset import load_edgelist, load_labels
-from netorch.coarsening.random import RandomCoarsening
+from netorch.coarsening.random_coarsening import RandomCoarsening
 from netorch.models.walkbased import DeepWalk
 from netorch.models.hierarchical import RecursiveProlong
 from netorch.evaluate import evaluate

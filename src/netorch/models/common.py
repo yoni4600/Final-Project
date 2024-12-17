@@ -5,15 +5,15 @@ import torch.nn as nn
 import torch.optim as optim
 
 class SkipGramNS(nn.Module):
-    def __init__(self, num_nodes, dimension, device='cuda'):
+    def __init__(self, num_nodes, dimension, device='cpu'):
         super().__init__()
         self.num_nodes = num_nodes
         self.dimension = dimension
         self.device = device
 
-        self.embeddings = nn.Embedding(self.num_nodes, self.dimension).to(device=device)
+        self.embeddings = nn.Embedding(self.num_nodes, self.dimension).to(device='cpu')
         self.embeddings.weight.data.normal_(0.0, 1./sqrt(dimension))
-        self.contexts = nn.Embedding(self.num_nodes, self.dimension).to(device=device)
+        self.contexts = nn.Embedding(self.num_nodes, self.dimension).to(device='cpu')
         self.contexts.weight.data.normal_(0.0, 1./sqrt(dimension))
 
     def forward(self, u, v, sign):
@@ -26,15 +26,15 @@ class SkipGramNS(nn.Module):
         return loss
 
 class TripletEmbedding(nn.Module):
-    def __init__(self, num_nodes, dimension, device='cuda'):
+    def __init__(self, num_nodes, dimension, device='cpu'):
         super().__init__()
         self.num_nodes = num_nodes
         self.dimension = dimension
         self.device = device
 
-        self.embeddings = nn.Embedding(self.num_nodes, self.dimension).to(device=device)
+        self.embeddings = nn.Embedding(self.num_nodes, self.dimension).to(device='cpu')
         self.embeddings.weight.data.normal_(0.0, 1./sqrt(dimension))
-        self.contexts = nn.Embedding(self.num_nodes, self.dimension).to(device=device)
+        self.contexts = nn.Embedding(self.num_nodes, self.dimension).to(device='cpu')
         self.contexts.weight.data.normal_(0.0, 1./sqrt(dimension))
 
     def forward(self, u, v, w):
@@ -71,7 +71,7 @@ class ModelIterator(object):
 
 class NodeEmbedding(ModelIterator):
 
-    def __init__(self, num_nodes, dimension, learning_rate, device='cuda'):
+    def __init__(self, num_nodes, dimension, learning_rate, device='cpu'):
         model = SkipGramNS(num_nodes, dimension, device=device)
         optimizer = optim.SGD(model.parameters(), lr=learning_rate)
         scheduler = optim.lr_scheduler.StepLR(optimizer, 1, gamma=0.9)
@@ -88,7 +88,7 @@ class NodeEmbedding(ModelIterator):
 
 class TripletNodeEmbedding(ModelIterator):
 
-    def __init__(self, num_nodes, dimension, learning_rate, device='cuda'):
+    def __init__(self, num_nodes, dimension, learning_rate, device='cpu'):
         model = TripletEmbedding(num_nodes, dimension, device=device)
         optimizer = optim.SGD(model.parameters(), lr=learning_rate)
         scheduler = optim.lr_scheduler.StepLR(optimizer, 1, gamma=0.9)

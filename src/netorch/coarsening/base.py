@@ -62,7 +62,7 @@ class BaseCoarsening(object):
             cols.append(su)
             vals.append(w)
             vals.append(w)
-        new_graph = nx.from_scipy_sparse_matrix(
+        new_graph = nx.from_scipy_sparse_array(
             coo_matrix(
                 (vals, (rows, cols)),
                 shape=(num_new_nodes, num_new_nodes),

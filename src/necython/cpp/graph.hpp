@@ -3,6 +3,8 @@
 #include <unordered_set>
 #include <utility>
 #include <algorithm>
+#include <stdexcept> // For std::out_of_range
+
 
 #ifndef NETWORK_EMBEDDING_GRAPH_H
 #define NETWORK_EMBEDDING_GRAPH_H
@@ -72,9 +74,9 @@ class Graph {
             inline const Node & operator*() const {
                 return adjacency_list_iterator_->first;
             }
-        
+
             private:
-            
+
             const NodeView * node_view_;
             AdjacencyList::const_iterator adjacency_list_iterator_;
         };
@@ -99,8 +101,35 @@ class Graph {
 
         EdgeView(const Graph * graph) : graph_(graph) {}
 
-        class Iterator {
+        // EdgeViewIterator: A helper class for Python iteration
+        class EdgeViewIterator {
             public:
+            EdgeViewIterator(const EdgeWeight::const_iterator current, const EdgeWeight::const_iterator end)
+                : current_(current), end_(end) {}
+
+            bool has_next() const {
+                return current_ != end_;
+            }
+
+            const Edge &next() {
+                if (current_ == end_) {
+                    throw std::out_of_range("End of EdgeViewIterator reached");
+                }
+                return (current_++)->first;
+            }
+
+            private:
+            EdgeWeight::const_iterator current_;
+            EdgeWeight::const_iterator end_;
+        };
+
+        // Add this method to EdgeView
+        inline EdgeViewIterator iter() const {
+            return EdgeViewIterator(graph_->edge_weight_.cbegin(), graph_->edge_weight_.cend());
+        }
+
+        class Iterator {
+        public:
 
             Iterator() : edge_view_(nullptr) {}
 
@@ -108,8 +137,11 @@ class Graph {
 
             Iterator(const EdgeView * edge_view, const EdgeWeight::const_iterator & it) : edge_view_(edge_view), edge_weight_iterator_(it) {}
 
-            inline Iterator & operator=(const Iterator &rhs) {
-                edge_weight_iterator_ = rhs.edge_weight_iterator_;
+            Iterator& operator=(const Iterator &rhs) {
+                if (this != &rhs) {
+                    edge_view_ = rhs.edge_view_;
+                    edge_weight_iterator_ = rhs.edge_weight_iterator_;
+                }
                 return *this;
             }
 
@@ -153,9 +185,19 @@ class Graph {
             inline const Edge & operator*() const {
                 return edge_weight_iterator_->first;
             }
-        
-            private:
-            
+
+
+            inline const Edge& current() const {  // Replace operator*()
+                return edge_weight_iterator_->first;
+            }
+
+            inline void increment() {  // Replace operator++()
+                ++edge_weight_iterator_;
+            }
+
+
+        private:
+
             const EdgeView * edge_view_;
             EdgeWeight::const_iterator edge_weight_iterator_;
         };
@@ -220,9 +262,9 @@ class Graph {
             inline const Edge & operator*() const {
                 return edge_weight_iterator_->first;
             }
-        
+
             private:
-            
+
             const DirectedEdgeView * directed_edge_view_;
             EdgeWeight::const_iterator edge_weight_iterator_;
         };
@@ -239,7 +281,7 @@ class Graph {
 
         const Graph * graph_;
     }; // class Graph::DirectedEdgeView
-    
+
     Graph() {}
 
     Graph(const Graph & g) : adjacency_list_(g.adjacency_list_), edge_weight_(g.edge_weight_) {}
@@ -310,7 +352,7 @@ class Graph {
     }
 
     private:
-    
+
     AdjacencyList adjacency_list_;
     EdgeWeight edge_weight_;
 }; // class Graph

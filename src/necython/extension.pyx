@@ -4,7 +4,7 @@
 #distutils: language=c++
 
 from libcpp cimport bool
-
+from libcpp.utility cimport pair
 from necpp cimport Graph as CGraph
 from necpp cimport Walker as CWalker, BiasedWalker as CBiasedWalker
 from necpp cimport WindowSampling, SkipSampling
@@ -30,6 +30,18 @@ cdef class Graph:
 
     def remove_edge(self, u, v, weight):
         self.c_graph.RemoveEdge(u, v)
+
+    def edges(self):
+        """Generator to yield edges."""
+        cdef CGraph.EdgeView edge_view = self.c_graph.edges()
+        cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
+        cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()
+        cdef pair[int, int] edge
+
+        while edge_iter != edge_end:
+            edge = edge_iter.current()  # Use the current() helper to dereference
+            yield (edge.first, edge.second)
+            edge_iter.increment()  # Use increment() helper to move to the next item
 
 cdef class Walker:
     cdef CWalker c_walker
@@ -74,7 +86,34 @@ def skip_sampling(list sequences, size_t distance, double down_sampling, bool sh
     return SkipSampling(sequences, distance, down_sampling, shuffle)
 
 def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
+    print("Initializing ACOWalk...")
     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
-    edges = g.edges()
-    phe = [(u, v, g.weight(u, v)) for u, v in edges]
+    print("ACOWalk initialized successfully.")
+
+    cdef list edge_list = []
+    print("Converting EdgeView to Python list...")
+
+    cdef CGraph.EdgeView edge_view = g.edges()
+    cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
+    cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()
+    cdef pair[int, int] edge
+
+    while edge_iter != edge_end:
+        print("Checking iterator...")
+        edge = edge_iter.current()  # Call current() explicitly
+        print(f"Edge: ({edge.first}, {edge.second})")
+        edge_list.append((edge.first, edge.second))
+        edge_iter.increment()  # Call increment() explicitly
+
+    print("EdgeView iteration completed.")
+
+    if len(edge_list) == 0:
+        print("No edges found in graph.")
+        return []
+
+    print("Edges retrieved:", edge_list)
+
+    phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
+    print("Weights computed:", phe)
+
     return phe

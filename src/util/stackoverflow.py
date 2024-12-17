@@ -13,7 +13,7 @@ def find_best_trade_off(arr):
     lineVec = allCoord[-1] - allCoord[0]
     lineVecNorm = lineVec / np.sqrt(np.sum(lineVec**2))
     vecFromFirst = allCoord - firstPoint
-    scalarProduct = np.sum(vecFromFirst * np.matlib.repmat(lineVecNorm, nPoints, 1), axis=1)
+    scalarProduct = np.sum(vecFromFirst * np.tile(lineVecNorm, (nPoints, 1)), axis=1)
     vecFromFirstParallel = np.outer(scalarProduct, lineVecNorm)
     vecToLine = vecFromFirst - vecFromFirstParallel
     distToLine = np.sqrt(np.sum(vecToLine ** 2, axis=1))

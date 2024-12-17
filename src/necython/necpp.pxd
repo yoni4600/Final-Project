@@ -38,6 +38,8 @@ cdef extern from "cpp/graph.hpp" namespace "network_embedding" nogil:
                 Iterator& operator++()
                 Iterator operator++(int)
                 const Edge& operator*()
+                void increment()
+                const Edge &current()
 
             EdgeView() except +
             EdgeView(const Graph * graph) except +
