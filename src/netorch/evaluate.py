@@ -3,14 +3,10 @@
 import numpy as np
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.metrics import f1_score, accuracy_score
-from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
-
-import tqdm
-
 from openne.classify import Classifier
+
 
 def openne_transform_label(labels):
     X = []
@@ -27,6 +23,7 @@ def openne_node_classification(embeddings, labels, clf_ratio=0.5, clf=None):
     classifier = Classifier(vectors=embeddings, clf=clf)
     X, Y = openne_transform_label(labels)
     return classifier.split_train_evaluate(X, Y, clf_ratio)
+
 
 def node_classification(embeddings, labels, clf_ratio=0.5, clf=None):
     if clf is None:
@@ -52,6 +49,7 @@ def node_classification(embeddings, labels, clf_ratio=0.5, clf=None):
         'macro_f1': f1_score(Y_test, Y_pred, average='macro'), 
         'micro_f1': f1_score(Y_test, Y_pred, average='micro'),
     }
+
 
 def evaluate(embeddings, labels, clf_ratio=0.5, classifier=None, seed=233):
     if classifier is None:
