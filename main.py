@@ -1,6 +1,6 @@
 import networkx as nx
 from netorch.dataset import load_edgelist, load_labels
-from evaluation_plan import EvaluationPlan
+from src.evaluation_plan import EvaluationPlan
 
 
 def main():
