@@ -2,7 +2,7 @@
 import numpy as np
 
 
-class ConcatModel(object):
+class MLNE(object):
 
     def __init__(self, graph, dimension, Model, Coarsening, num_scales=4):
         self.original_graph = graph
@@ -16,15 +16,16 @@ class ConcatModel(object):
     #     return PCA(n_components=dimension).fit_transform(embeddings)
 
     def train(self):
-        # Initialize the graph coarsening process
+        # """ START OF ALGORITHM 1 """
+        # graph coarsening process
         coarsening = self.Coarsening(self.original_graph)
 
-        # stopping condition to the recursive, If only one graph is returned perform recursive merging
+        # If only one graph is returned perform recursive merging
         if len(coarsening.graphs) == 1:
             coarsening.recursive_merge()
 
         # Retrieve the list of coarsened graphs and their mappings to the original graph, keeps the order of supernodes
-        graphs = coarsening.graphs
+        graphs = coarsening.graphs  # graph pyramid
         mappings = coarsening.make_mappings_to_original_graph()
 
         # Prepare to select significant levels of graph coarsening based on node reduction
@@ -49,7 +50,7 @@ class ConcatModel(object):
         # Set dimensions for each graph to be trained
         dimensions = [self.dimension for g in train_graphs]
 
-        # Train models on each selected graph
+        # Train embedding on each selected graph layer
         for i, (graph, mapping, dimension) in enumerate(zip(train_graphs, train_mappings, dimensions)):
             print('Training graph#{} #nodes={} #edges={}'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
             # Reverse the mapping for embedding assignment
@@ -62,12 +63,14 @@ class ConcatModel(object):
             # Assign embeddings from the model to the corresponding nodes in the original graph
             for node, super_node in rev_mapping.items():
                 embeddings[node,:] = results[super_node,:]
-            # Concatenate new embeddings with existing embeddings
+            # Concatenate new embeddings with existing embeddings, embedding matrix!
             self.embeddings = np.concatenate([self.embeddings, embeddings], axis=1)
 
         # self.embeddings = self.dimension_reduction(self.embeddings, self.dimension)
         
         return self
+        # """ END OF ALGORITHM 1 """
+
         
     def get_embeddings(self):
         # Return the concatenated embeddings from all scales

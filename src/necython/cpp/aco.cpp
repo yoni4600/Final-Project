@@ -67,8 +67,6 @@ Graph ACOWalk(
     Graph total_pheromone(graph);
     Graph mixed(graph);
 
-
-    // Debug edge initialization
     if (g.number_of_edges() == 0) {
         std::cerr << "Error: Input graph has no edges!" << std::endl;
         return total_pheromone;

@@ -76,17 +76,18 @@ class BaseCoarsening(object):
             new_graph.nodes[super_node]['size'] = sum_size
         
         return new_graph
-
+    ########### START ALGORITHM 4 ############
     def recursive_merge(self):
         edge_threshold = self.original_graph.number_of_edges()*self.threshold
         node_threshold = self.original_graph.number_of_nodes()*self.threshold
         while True:
             cur_graph = self.graphs[-1]
-            merge_result = self.merge(cur_graph)
-            if len(merge_result)==cur_graph.number_of_nodes(): # no edge in the graph
+            merge_result = self.merge(cur_graph) # LINE 4 + 5
+            if len(merge_result) == cur_graph.number_of_nodes(): # no edge in the graph
                 break
-            new_graph = self.gen_merged_graph(cur_graph, merge_result)
+            new_graph = self.gen_merged_graph(cur_graph, merge_result) # LINE 6 AT ALGORITHM 4
             self.graphs.append(new_graph)
             self.mappings.append(self.merge_result_to_mapping(merge_result))
             if new_graph.number_of_nodes()<node_threshold or new_graph.number_of_edges()<edge_threshold:
                 break
+    ########### END ALGORITHM 4 ############
