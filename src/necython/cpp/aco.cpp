@@ -80,13 +80,6 @@ Graph ACOWalk(
 
         auto sequences = walker.Walk(num_walks, max_step, num_threads);
 
-        // Debug sequences
-        for (size_t j = 0; j < sequences.size(); ++j) {
-            const auto &sequence = sequences[j];
-            for (const auto &node : sequence) {
-            }
-        }
-
         // Reset pheromone weights
         for (const auto & edge : g.edges()) {
             pheromone.SetEdgeWeight(edge, 0.0);
@@ -134,11 +127,6 @@ Graph ACOWalkWithLabel(
     Graph pheromone(graph);
     Graph total_pheromone(graph);
     Graph mixed(graph);
-
-    std::cout << "Debug: Printing edges in graph..." << std::endl;
-    for (const auto & edge : g.edges()) {
-        std::cout << "Edge: (" << edge.first << ", " << edge.second << ")" << std::endl;
-    }
 
     for (size_t i = 0; i < num_iterations; i++) {
         Walker walker;

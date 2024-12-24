@@ -23,7 +23,7 @@ class ACOCoarsening(BaseCoarsening):
         m_graph = CGraph.from_nx_graph(graph)
         edge_and_weights = aco_walk(m_graph, self.num_walks, self.window_size, self.iterations, self.phe_power, self.evapo_rate, 20) # LINE 4 AT ALGORITHM 4 = ACWALK ALGORITHM 2
         ########### START ALGORITHM 3 ###############
-        edge_and_weights.sort(key=lambda item: item[2], reverse=True) # SORT THE WEIGHTS IN DESCENDING ORDER = LINE 5 AT ALGORITHM 4
+        edge_and_weights.sort(key=lambda item: item[2], reverse=True)  # SORT THE WEIGHTS IN DESCENDING ORDER = LINE 5 AT ALGORITHM 4
 
         weights = np.array([item[2] for item in edge_and_weights])
         trade_off_index = find_best_trade_off(weights)

@@ -1976,22 +1976,6 @@ static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject 
         __Pyx__ArgTypeTest(obj, type, name, exact))
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
 
-/* GCCDiagnostics.proto */
-#if !defined(__INTEL_COMPILER) && defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
-#define __Pyx_HAS_GCC_DIAGNOSTIC
-#endif
-
-/* BuildPyUnicode.proto */
-static PyObject* __Pyx_PyUnicode_BuildFromAscii(Py_ssize_t ulength, char* chars, int clength,
-                                                int prepend_sign, char padding_char);
-
-/* CIntToPyUnicode.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyUnicode_From_int(int value, Py_ssize_t width, char padding_char, char format_char);
-
-/* JoinPyUnicode.proto */
-static PyObject* __Pyx_PyUnicode_Join(PyObject* value_tuple, Py_ssize_t value_count, Py_ssize_t result_ulength,
-                                      Py_UCS4 max_char);
-
 /* ListAppend.proto */
 #if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
 static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
@@ -2306,6 +2290,11 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 /* None.proto */
 #include <new>
 
+/* GCCDiagnostics.proto */
+#if !defined(__INTEL_COMPILER) && defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
+#define __Pyx_HAS_GCC_DIAGNOSTIC
+#endif
+
 /* CppExceptionConversion.proto */
 #ifndef __Pyx_CppExn2PyErr
 #include <new>
@@ -2551,14 +2540,11 @@ static const char __pyx_k_p[] = "p";
 static const char __pyx_k_q[] = "q";
 static const char __pyx_k_u[] = "u";
 static const char __pyx_k_v[] = "v";
-static const char __pyx_k__6[] = ", ";
-static const char __pyx_k__7[] = ")";
+static const char __pyx_k__3[] = "*";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_nx[] = "nx";
-static const char __pyx_k__10[] = "*";
-static const char __pyx_k__45[] = "?";
+static const char __pyx_k__38[] = "?";
 static const char __pyx_k_phe[] = "phe";
-static const char __pyx_k_Edge[] = "Edge: (";
 static const char __pyx_k_args[] = "args";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_edge[] = "edge";
@@ -2630,17 +2616,13 @@ static const char __pyx_k_simulate_walk[] = "simulate_walk";
 static const char __pyx_k_skip_sampling[] = "skip_sampling";
 static const char __pyx_k_Graph_add_edge[] = "Graph.add_edge";
 static const char __pyx_k_num_iterations[] = "num_iterations";
-static const char __pyx_k_Edges_retrieved[] = "Edges retrieved:";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_window_sampling[] = "window_sampling";
-static const char __pyx_k_Weights_computed[] = "Weights computed:";
 static const char __pyx_k_BiasedWalker_walk[] = "BiasedWalker.walk";
-static const char __pyx_k_Checking_iterator[] = "Checking iterator...";
 static const char __pyx_k_Graph_remove_edge[] = "Graph.remove_edge";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Graph_from_nx_graph[] = "Graph.from_nx_graph";
-static const char __pyx_k_Initializing_ACOWalk[] = "Initializing ACOWalk...";
 static const char __pyx_k_Walker_set_node_list[] = "Walker.set_node_list";
 static const char __pyx_k_Walker_simulate_walk[] = "Walker.simulate_walk";
 static const char __pyx_k_Graph___reduce_cython[] = "Graph.__reduce_cython__";
@@ -2652,13 +2634,10 @@ static const char __pyx_k_No_edges_found_in_graph[] = "No edges found in graph."
 static const char __pyx_k_Walker___setstate_cython[] = "Walker.__setstate_cython__";
 static const char __pyx_k_BiasedWalker_simulate_walk[] = "BiasedWalker.simulate_walk";
 static const char __pyx_k_BiasedWalker___reduce_cython[] = "BiasedWalker.__reduce_cython__";
-static const char __pyx_k_EdgeView_iteration_completed[] = "EdgeView iteration completed.";
 static const char __pyx_k_Walker_set_transition_weights[] = "Walker.set_transition_weights";
 static const char __pyx_k_init_distributions_from_graph[] = "init_distributions_from_graph";
 static const char __pyx_k_BiasedWalker___setstate_cython[] = "BiasedWalker.__setstate_cython__";
 static const char __pyx_k_BiasedWalker_init_distributions[] = "BiasedWalker.init_distributions_from_graph";
-static const char __pyx_k_ACOWalk_initialized_successfully[] = "ACOWalk initialized successfully.";
-static const char __pyx_k_Converting_EdgeView_to_Python_li[] = "Converting EdgeView to Python list...";
 static const char __pyx_k_Walker_init_distributions_from_g[] = "Walker.init_distributions_from_graph";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 /* #### Code section: decls ### */
@@ -2739,18 +2718,12 @@ typedef struct {
   PyTypeObject *__pyx_ptype_8necython_Walker;
   PyTypeObject *__pyx_ptype_8necython_BiasedWalker;
   PyTypeObject *__pyx_ptype_8necython___pyx_scope_struct__edges;
-  PyObject *__pyx_kp_u_ACOWalk_initialized_successfully;
   PyObject *__pyx_n_s_BiasedWalker;
   PyObject *__pyx_n_s_BiasedWalker___reduce_cython;
   PyObject *__pyx_n_s_BiasedWalker___setstate_cython;
   PyObject *__pyx_n_s_BiasedWalker_init_distributions;
   PyObject *__pyx_n_s_BiasedWalker_simulate_walk;
   PyObject *__pyx_n_s_BiasedWalker_walk;
-  PyObject *__pyx_kp_u_Checking_iterator;
-  PyObject *__pyx_kp_u_Converting_EdgeView_to_Python_li;
-  PyObject *__pyx_kp_u_Edge;
-  PyObject *__pyx_kp_u_EdgeView_iteration_completed;
-  PyObject *__pyx_kp_u_Edges_retrieved;
   PyObject *__pyx_n_s_Graph;
   PyObject *__pyx_n_s_Graph___reduce_cython;
   PyObject *__pyx_n_s_Graph___setstate_cython;
@@ -2758,7 +2731,6 @@ typedef struct {
   PyObject *__pyx_n_s_Graph_edges;
   PyObject *__pyx_n_s_Graph_from_nx_graph;
   PyObject *__pyx_n_s_Graph_remove_edge;
-  PyObject *__pyx_kp_u_Initializing_ACOWalk;
   PyObject *__pyx_n_s_MemoryError;
   PyObject *__pyx_kp_u_No_edges_found_in_graph;
   PyObject *__pyx_n_s_TypeError;
@@ -2770,11 +2742,8 @@ typedef struct {
   PyObject *__pyx_n_s_Walker_set_transition_weights;
   PyObject *__pyx_n_s_Walker_simulate_walk;
   PyObject *__pyx_n_s_Walker_walk;
-  PyObject *__pyx_kp_u_Weights_computed;
-  PyObject *__pyx_n_s__10;
-  PyObject *__pyx_n_s__45;
-  PyObject *__pyx_kp_u__6;
-  PyObject *__pyx_kp_u__7;
+  PyObject *__pyx_n_s__3;
+  PyObject *__pyx_n_s__38;
   PyObject *__pyx_n_s_aco_walk;
   PyObject *__pyx_n_s_add_edge;
   PyObject *__pyx_n_s_alpha;
@@ -2857,45 +2826,40 @@ typedef struct {
   PyObject *__pyx_n_s_window_size;
   PyObject *__pyx_codeobj_;
   PyObject *__pyx_tuple__2;
-  PyObject *__pyx_tuple__3;
   PyObject *__pyx_tuple__4;
-  PyObject *__pyx_tuple__5;
-  PyObject *__pyx_tuple__8;
+  PyObject *__pyx_tuple__6;
   PyObject *__pyx_tuple__9;
-  PyObject *__pyx_tuple__11;
-  PyObject *__pyx_tuple__13;
+  PyObject *__pyx_tuple__10;
+  PyObject *__pyx_tuple__12;
+  PyObject *__pyx_tuple__14;
   PyObject *__pyx_tuple__16;
-  PyObject *__pyx_tuple__17;
-  PyObject *__pyx_tuple__19;
-  PyObject *__pyx_tuple__21;
-  PyObject *__pyx_tuple__23;
-  PyObject *__pyx_tuple__25;
-  PyObject *__pyx_tuple__27;
-  PyObject *__pyx_tuple__29;
-  PyObject *__pyx_tuple__33;
-  PyObject *__pyx_tuple__39;
-  PyObject *__pyx_tuple__41;
-  PyObject *__pyx_tuple__43;
-  PyObject *__pyx_codeobj__12;
-  PyObject *__pyx_codeobj__14;
+  PyObject *__pyx_tuple__18;
+  PyObject *__pyx_tuple__20;
+  PyObject *__pyx_tuple__22;
+  PyObject *__pyx_tuple__26;
+  PyObject *__pyx_tuple__32;
+  PyObject *__pyx_tuple__34;
+  PyObject *__pyx_tuple__36;
+  PyObject *__pyx_codeobj__5;
+  PyObject *__pyx_codeobj__7;
+  PyObject *__pyx_codeobj__8;
+  PyObject *__pyx_codeobj__11;
+  PyObject *__pyx_codeobj__13;
   PyObject *__pyx_codeobj__15;
-  PyObject *__pyx_codeobj__18;
-  PyObject *__pyx_codeobj__20;
-  PyObject *__pyx_codeobj__22;
+  PyObject *__pyx_codeobj__17;
+  PyObject *__pyx_codeobj__19;
+  PyObject *__pyx_codeobj__21;
+  PyObject *__pyx_codeobj__23;
   PyObject *__pyx_codeobj__24;
-  PyObject *__pyx_codeobj__26;
+  PyObject *__pyx_codeobj__25;
+  PyObject *__pyx_codeobj__27;
   PyObject *__pyx_codeobj__28;
+  PyObject *__pyx_codeobj__29;
   PyObject *__pyx_codeobj__30;
   PyObject *__pyx_codeobj__31;
-  PyObject *__pyx_codeobj__32;
-  PyObject *__pyx_codeobj__34;
+  PyObject *__pyx_codeobj__33;
   PyObject *__pyx_codeobj__35;
-  PyObject *__pyx_codeobj__36;
   PyObject *__pyx_codeobj__37;
-  PyObject *__pyx_codeobj__38;
-  PyObject *__pyx_codeobj__40;
-  PyObject *__pyx_codeobj__42;
-  PyObject *__pyx_codeobj__44;
 } __pyx_mstate;
 
 #if CYTHON_USE_MODULE_STATE
@@ -2946,18 +2910,12 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_8necython_BiasedWalker);
   Py_CLEAR(clear_module_state->__pyx_ptype_8necython___pyx_scope_struct__edges);
   Py_CLEAR(clear_module_state->__pyx_type_8necython___pyx_scope_struct__edges);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_ACOWalk_initialized_successfully);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker___reduce_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker___setstate_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker_init_distributions);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker_simulate_walk);
   Py_CLEAR(clear_module_state->__pyx_n_s_BiasedWalker_walk);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Checking_iterator);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Converting_EdgeView_to_Python_li);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Edge);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_EdgeView_iteration_completed);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Edges_retrieved);
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph);
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph___reduce_cython);
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph___setstate_cython);
@@ -2965,7 +2923,6 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph_edges);
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph_from_nx_graph);
   Py_CLEAR(clear_module_state->__pyx_n_s_Graph_remove_edge);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Initializing_ACOWalk);
   Py_CLEAR(clear_module_state->__pyx_n_s_MemoryError);
   Py_CLEAR(clear_module_state->__pyx_kp_u_No_edges_found_in_graph);
   Py_CLEAR(clear_module_state->__pyx_n_s_TypeError);
@@ -2977,11 +2934,8 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_Walker_set_transition_weights);
   Py_CLEAR(clear_module_state->__pyx_n_s_Walker_simulate_walk);
   Py_CLEAR(clear_module_state->__pyx_n_s_Walker_walk);
-  Py_CLEAR(clear_module_state->__pyx_kp_u_Weights_computed);
-  Py_CLEAR(clear_module_state->__pyx_n_s__10);
-  Py_CLEAR(clear_module_state->__pyx_n_s__45);
-  Py_CLEAR(clear_module_state->__pyx_kp_u__6);
-  Py_CLEAR(clear_module_state->__pyx_kp_u__7);
+  Py_CLEAR(clear_module_state->__pyx_n_s__3);
+  Py_CLEAR(clear_module_state->__pyx_n_s__38);
   Py_CLEAR(clear_module_state->__pyx_n_s_aco_walk);
   Py_CLEAR(clear_module_state->__pyx_n_s_add_edge);
   Py_CLEAR(clear_module_state->__pyx_n_s_alpha);
@@ -3064,45 +3018,40 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_window_size);
   Py_CLEAR(clear_module_state->__pyx_codeobj_);
   Py_CLEAR(clear_module_state->__pyx_tuple__2);
-  Py_CLEAR(clear_module_state->__pyx_tuple__3);
   Py_CLEAR(clear_module_state->__pyx_tuple__4);
-  Py_CLEAR(clear_module_state->__pyx_tuple__5);
-  Py_CLEAR(clear_module_state->__pyx_tuple__8);
+  Py_CLEAR(clear_module_state->__pyx_tuple__6);
   Py_CLEAR(clear_module_state->__pyx_tuple__9);
-  Py_CLEAR(clear_module_state->__pyx_tuple__11);
-  Py_CLEAR(clear_module_state->__pyx_tuple__13);
+  Py_CLEAR(clear_module_state->__pyx_tuple__10);
+  Py_CLEAR(clear_module_state->__pyx_tuple__12);
+  Py_CLEAR(clear_module_state->__pyx_tuple__14);
   Py_CLEAR(clear_module_state->__pyx_tuple__16);
-  Py_CLEAR(clear_module_state->__pyx_tuple__17);
-  Py_CLEAR(clear_module_state->__pyx_tuple__19);
-  Py_CLEAR(clear_module_state->__pyx_tuple__21);
-  Py_CLEAR(clear_module_state->__pyx_tuple__23);
-  Py_CLEAR(clear_module_state->__pyx_tuple__25);
-  Py_CLEAR(clear_module_state->__pyx_tuple__27);
-  Py_CLEAR(clear_module_state->__pyx_tuple__29);
-  Py_CLEAR(clear_module_state->__pyx_tuple__33);
-  Py_CLEAR(clear_module_state->__pyx_tuple__39);
-  Py_CLEAR(clear_module_state->__pyx_tuple__41);
-  Py_CLEAR(clear_module_state->__pyx_tuple__43);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__12);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__14);
+  Py_CLEAR(clear_module_state->__pyx_tuple__18);
+  Py_CLEAR(clear_module_state->__pyx_tuple__20);
+  Py_CLEAR(clear_module_state->__pyx_tuple__22);
+  Py_CLEAR(clear_module_state->__pyx_tuple__26);
+  Py_CLEAR(clear_module_state->__pyx_tuple__32);
+  Py_CLEAR(clear_module_state->__pyx_tuple__34);
+  Py_CLEAR(clear_module_state->__pyx_tuple__36);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__5);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__7);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__8);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__11);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__13);
   Py_CLEAR(clear_module_state->__pyx_codeobj__15);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__18);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__20);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__22);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__17);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__19);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__21);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__23);
   Py_CLEAR(clear_module_state->__pyx_codeobj__24);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__26);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__25);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__27);
   Py_CLEAR(clear_module_state->__pyx_codeobj__28);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__29);
   Py_CLEAR(clear_module_state->__pyx_codeobj__30);
   Py_CLEAR(clear_module_state->__pyx_codeobj__31);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__32);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__34);
+  Py_CLEAR(clear_module_state->__pyx_codeobj__33);
   Py_CLEAR(clear_module_state->__pyx_codeobj__35);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__36);
   Py_CLEAR(clear_module_state->__pyx_codeobj__37);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__38);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__40);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__42);
-  Py_CLEAR(clear_module_state->__pyx_codeobj__44);
   return 0;
 }
 #endif
@@ -3131,18 +3080,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_type_8necython_BiasedWalker);
   Py_VISIT(traverse_module_state->__pyx_ptype_8necython___pyx_scope_struct__edges);
   Py_VISIT(traverse_module_state->__pyx_type_8necython___pyx_scope_struct__edges);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_ACOWalk_initialized_successfully);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker___reduce_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker___setstate_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker_init_distributions);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker_simulate_walk);
   Py_VISIT(traverse_module_state->__pyx_n_s_BiasedWalker_walk);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Checking_iterator);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Converting_EdgeView_to_Python_li);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Edge);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_EdgeView_iteration_completed);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Edges_retrieved);
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph);
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph___reduce_cython);
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph___setstate_cython);
@@ -3150,7 +3093,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph_edges);
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph_from_nx_graph);
   Py_VISIT(traverse_module_state->__pyx_n_s_Graph_remove_edge);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Initializing_ACOWalk);
   Py_VISIT(traverse_module_state->__pyx_n_s_MemoryError);
   Py_VISIT(traverse_module_state->__pyx_kp_u_No_edges_found_in_graph);
   Py_VISIT(traverse_module_state->__pyx_n_s_TypeError);
@@ -3162,11 +3104,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_Walker_set_transition_weights);
   Py_VISIT(traverse_module_state->__pyx_n_s_Walker_simulate_walk);
   Py_VISIT(traverse_module_state->__pyx_n_s_Walker_walk);
-  Py_VISIT(traverse_module_state->__pyx_kp_u_Weights_computed);
-  Py_VISIT(traverse_module_state->__pyx_n_s__10);
-  Py_VISIT(traverse_module_state->__pyx_n_s__45);
-  Py_VISIT(traverse_module_state->__pyx_kp_u__6);
-  Py_VISIT(traverse_module_state->__pyx_kp_u__7);
+  Py_VISIT(traverse_module_state->__pyx_n_s__3);
+  Py_VISIT(traverse_module_state->__pyx_n_s__38);
   Py_VISIT(traverse_module_state->__pyx_n_s_aco_walk);
   Py_VISIT(traverse_module_state->__pyx_n_s_add_edge);
   Py_VISIT(traverse_module_state->__pyx_n_s_alpha);
@@ -3249,45 +3188,40 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_window_size);
   Py_VISIT(traverse_module_state->__pyx_codeobj_);
   Py_VISIT(traverse_module_state->__pyx_tuple__2);
-  Py_VISIT(traverse_module_state->__pyx_tuple__3);
   Py_VISIT(traverse_module_state->__pyx_tuple__4);
-  Py_VISIT(traverse_module_state->__pyx_tuple__5);
-  Py_VISIT(traverse_module_state->__pyx_tuple__8);
+  Py_VISIT(traverse_module_state->__pyx_tuple__6);
   Py_VISIT(traverse_module_state->__pyx_tuple__9);
-  Py_VISIT(traverse_module_state->__pyx_tuple__11);
-  Py_VISIT(traverse_module_state->__pyx_tuple__13);
+  Py_VISIT(traverse_module_state->__pyx_tuple__10);
+  Py_VISIT(traverse_module_state->__pyx_tuple__12);
+  Py_VISIT(traverse_module_state->__pyx_tuple__14);
   Py_VISIT(traverse_module_state->__pyx_tuple__16);
-  Py_VISIT(traverse_module_state->__pyx_tuple__17);
-  Py_VISIT(traverse_module_state->__pyx_tuple__19);
-  Py_VISIT(traverse_module_state->__pyx_tuple__21);
-  Py_VISIT(traverse_module_state->__pyx_tuple__23);
-  Py_VISIT(traverse_module_state->__pyx_tuple__25);
-  Py_VISIT(traverse_module_state->__pyx_tuple__27);
-  Py_VISIT(traverse_module_state->__pyx_tuple__29);
-  Py_VISIT(traverse_module_state->__pyx_tuple__33);
-  Py_VISIT(traverse_module_state->__pyx_tuple__39);
-  Py_VISIT(traverse_module_state->__pyx_tuple__41);
-  Py_VISIT(traverse_module_state->__pyx_tuple__43);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__12);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__14);
+  Py_VISIT(traverse_module_state->__pyx_tuple__18);
+  Py_VISIT(traverse_module_state->__pyx_tuple__20);
+  Py_VISIT(traverse_module_state->__pyx_tuple__22);
+  Py_VISIT(traverse_module_state->__pyx_tuple__26);
+  Py_VISIT(traverse_module_state->__pyx_tuple__32);
+  Py_VISIT(traverse_module_state->__pyx_tuple__34);
+  Py_VISIT(traverse_module_state->__pyx_tuple__36);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__5);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__7);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__8);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__11);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__13);
   Py_VISIT(traverse_module_state->__pyx_codeobj__15);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__18);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__20);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__22);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__17);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__19);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__21);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__23);
   Py_VISIT(traverse_module_state->__pyx_codeobj__24);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__26);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__25);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__27);
   Py_VISIT(traverse_module_state->__pyx_codeobj__28);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__29);
   Py_VISIT(traverse_module_state->__pyx_codeobj__30);
   Py_VISIT(traverse_module_state->__pyx_codeobj__31);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__32);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__34);
+  Py_VISIT(traverse_module_state->__pyx_codeobj__33);
   Py_VISIT(traverse_module_state->__pyx_codeobj__35);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__36);
   Py_VISIT(traverse_module_state->__pyx_codeobj__37);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__38);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__40);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__42);
-  Py_VISIT(traverse_module_state->__pyx_codeobj__44);
   return 0;
 }
 #endif
@@ -3338,18 +3272,12 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_ptype_8necython_Walker __pyx_mstate_global->__pyx_ptype_8necython_Walker
 #define __pyx_ptype_8necython_BiasedWalker __pyx_mstate_global->__pyx_ptype_8necython_BiasedWalker
 #define __pyx_ptype_8necython___pyx_scope_struct__edges __pyx_mstate_global->__pyx_ptype_8necython___pyx_scope_struct__edges
-#define __pyx_kp_u_ACOWalk_initialized_successfully __pyx_mstate_global->__pyx_kp_u_ACOWalk_initialized_successfully
 #define __pyx_n_s_BiasedWalker __pyx_mstate_global->__pyx_n_s_BiasedWalker
 #define __pyx_n_s_BiasedWalker___reduce_cython __pyx_mstate_global->__pyx_n_s_BiasedWalker___reduce_cython
 #define __pyx_n_s_BiasedWalker___setstate_cython __pyx_mstate_global->__pyx_n_s_BiasedWalker___setstate_cython
 #define __pyx_n_s_BiasedWalker_init_distributions __pyx_mstate_global->__pyx_n_s_BiasedWalker_init_distributions
 #define __pyx_n_s_BiasedWalker_simulate_walk __pyx_mstate_global->__pyx_n_s_BiasedWalker_simulate_walk
 #define __pyx_n_s_BiasedWalker_walk __pyx_mstate_global->__pyx_n_s_BiasedWalker_walk
-#define __pyx_kp_u_Checking_iterator __pyx_mstate_global->__pyx_kp_u_Checking_iterator
-#define __pyx_kp_u_Converting_EdgeView_to_Python_li __pyx_mstate_global->__pyx_kp_u_Converting_EdgeView_to_Python_li
-#define __pyx_kp_u_Edge __pyx_mstate_global->__pyx_kp_u_Edge
-#define __pyx_kp_u_EdgeView_iteration_completed __pyx_mstate_global->__pyx_kp_u_EdgeView_iteration_completed
-#define __pyx_kp_u_Edges_retrieved __pyx_mstate_global->__pyx_kp_u_Edges_retrieved
 #define __pyx_n_s_Graph __pyx_mstate_global->__pyx_n_s_Graph
 #define __pyx_n_s_Graph___reduce_cython __pyx_mstate_global->__pyx_n_s_Graph___reduce_cython
 #define __pyx_n_s_Graph___setstate_cython __pyx_mstate_global->__pyx_n_s_Graph___setstate_cython
@@ -3357,7 +3285,6 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Graph_edges __pyx_mstate_global->__pyx_n_s_Graph_edges
 #define __pyx_n_s_Graph_from_nx_graph __pyx_mstate_global->__pyx_n_s_Graph_from_nx_graph
 #define __pyx_n_s_Graph_remove_edge __pyx_mstate_global->__pyx_n_s_Graph_remove_edge
-#define __pyx_kp_u_Initializing_ACOWalk __pyx_mstate_global->__pyx_kp_u_Initializing_ACOWalk
 #define __pyx_n_s_MemoryError __pyx_mstate_global->__pyx_n_s_MemoryError
 #define __pyx_kp_u_No_edges_found_in_graph __pyx_mstate_global->__pyx_kp_u_No_edges_found_in_graph
 #define __pyx_n_s_TypeError __pyx_mstate_global->__pyx_n_s_TypeError
@@ -3369,11 +3296,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_Walker_set_transition_weights __pyx_mstate_global->__pyx_n_s_Walker_set_transition_weights
 #define __pyx_n_s_Walker_simulate_walk __pyx_mstate_global->__pyx_n_s_Walker_simulate_walk
 #define __pyx_n_s_Walker_walk __pyx_mstate_global->__pyx_n_s_Walker_walk
-#define __pyx_kp_u_Weights_computed __pyx_mstate_global->__pyx_kp_u_Weights_computed
-#define __pyx_n_s__10 __pyx_mstate_global->__pyx_n_s__10
-#define __pyx_n_s__45 __pyx_mstate_global->__pyx_n_s__45
-#define __pyx_kp_u__6 __pyx_mstate_global->__pyx_kp_u__6
-#define __pyx_kp_u__7 __pyx_mstate_global->__pyx_kp_u__7
+#define __pyx_n_s__3 __pyx_mstate_global->__pyx_n_s__3
+#define __pyx_n_s__38 __pyx_mstate_global->__pyx_n_s__38
 #define __pyx_n_s_aco_walk __pyx_mstate_global->__pyx_n_s_aco_walk
 #define __pyx_n_s_add_edge __pyx_mstate_global->__pyx_n_s_add_edge
 #define __pyx_n_s_alpha __pyx_mstate_global->__pyx_n_s_alpha
@@ -3456,45 +3380,40 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_window_size __pyx_mstate_global->__pyx_n_s_window_size
 #define __pyx_codeobj_ __pyx_mstate_global->__pyx_codeobj_
 #define __pyx_tuple__2 __pyx_mstate_global->__pyx_tuple__2
-#define __pyx_tuple__3 __pyx_mstate_global->__pyx_tuple__3
 #define __pyx_tuple__4 __pyx_mstate_global->__pyx_tuple__4
-#define __pyx_tuple__5 __pyx_mstate_global->__pyx_tuple__5
-#define __pyx_tuple__8 __pyx_mstate_global->__pyx_tuple__8
+#define __pyx_tuple__6 __pyx_mstate_global->__pyx_tuple__6
 #define __pyx_tuple__9 __pyx_mstate_global->__pyx_tuple__9
-#define __pyx_tuple__11 __pyx_mstate_global->__pyx_tuple__11
-#define __pyx_tuple__13 __pyx_mstate_global->__pyx_tuple__13
+#define __pyx_tuple__10 __pyx_mstate_global->__pyx_tuple__10
+#define __pyx_tuple__12 __pyx_mstate_global->__pyx_tuple__12
+#define __pyx_tuple__14 __pyx_mstate_global->__pyx_tuple__14
 #define __pyx_tuple__16 __pyx_mstate_global->__pyx_tuple__16
-#define __pyx_tuple__17 __pyx_mstate_global->__pyx_tuple__17
-#define __pyx_tuple__19 __pyx_mstate_global->__pyx_tuple__19
-#define __pyx_tuple__21 __pyx_mstate_global->__pyx_tuple__21
-#define __pyx_tuple__23 __pyx_mstate_global->__pyx_tuple__23
-#define __pyx_tuple__25 __pyx_mstate_global->__pyx_tuple__25
-#define __pyx_tuple__27 __pyx_mstate_global->__pyx_tuple__27
-#define __pyx_tuple__29 __pyx_mstate_global->__pyx_tuple__29
-#define __pyx_tuple__33 __pyx_mstate_global->__pyx_tuple__33
-#define __pyx_tuple__39 __pyx_mstate_global->__pyx_tuple__39
-#define __pyx_tuple__41 __pyx_mstate_global->__pyx_tuple__41
-#define __pyx_tuple__43 __pyx_mstate_global->__pyx_tuple__43
-#define __pyx_codeobj__12 __pyx_mstate_global->__pyx_codeobj__12
-#define __pyx_codeobj__14 __pyx_mstate_global->__pyx_codeobj__14
+#define __pyx_tuple__18 __pyx_mstate_global->__pyx_tuple__18
+#define __pyx_tuple__20 __pyx_mstate_global->__pyx_tuple__20
+#define __pyx_tuple__22 __pyx_mstate_global->__pyx_tuple__22
+#define __pyx_tuple__26 __pyx_mstate_global->__pyx_tuple__26
+#define __pyx_tuple__32 __pyx_mstate_global->__pyx_tuple__32
+#define __pyx_tuple__34 __pyx_mstate_global->__pyx_tuple__34
+#define __pyx_tuple__36 __pyx_mstate_global->__pyx_tuple__36
+#define __pyx_codeobj__5 __pyx_mstate_global->__pyx_codeobj__5
+#define __pyx_codeobj__7 __pyx_mstate_global->__pyx_codeobj__7
+#define __pyx_codeobj__8 __pyx_mstate_global->__pyx_codeobj__8
+#define __pyx_codeobj__11 __pyx_mstate_global->__pyx_codeobj__11
+#define __pyx_codeobj__13 __pyx_mstate_global->__pyx_codeobj__13
 #define __pyx_codeobj__15 __pyx_mstate_global->__pyx_codeobj__15
-#define __pyx_codeobj__18 __pyx_mstate_global->__pyx_codeobj__18
-#define __pyx_codeobj__20 __pyx_mstate_global->__pyx_codeobj__20
-#define __pyx_codeobj__22 __pyx_mstate_global->__pyx_codeobj__22
+#define __pyx_codeobj__17 __pyx_mstate_global->__pyx_codeobj__17
+#define __pyx_codeobj__19 __pyx_mstate_global->__pyx_codeobj__19
+#define __pyx_codeobj__21 __pyx_mstate_global->__pyx_codeobj__21
+#define __pyx_codeobj__23 __pyx_mstate_global->__pyx_codeobj__23
 #define __pyx_codeobj__24 __pyx_mstate_global->__pyx_codeobj__24
-#define __pyx_codeobj__26 __pyx_mstate_global->__pyx_codeobj__26
+#define __pyx_codeobj__25 __pyx_mstate_global->__pyx_codeobj__25
+#define __pyx_codeobj__27 __pyx_mstate_global->__pyx_codeobj__27
 #define __pyx_codeobj__28 __pyx_mstate_global->__pyx_codeobj__28
+#define __pyx_codeobj__29 __pyx_mstate_global->__pyx_codeobj__29
 #define __pyx_codeobj__30 __pyx_mstate_global->__pyx_codeobj__30
 #define __pyx_codeobj__31 __pyx_mstate_global->__pyx_codeobj__31
-#define __pyx_codeobj__32 __pyx_mstate_global->__pyx_codeobj__32
-#define __pyx_codeobj__34 __pyx_mstate_global->__pyx_codeobj__34
+#define __pyx_codeobj__33 __pyx_mstate_global->__pyx_codeobj__33
 #define __pyx_codeobj__35 __pyx_mstate_global->__pyx_codeobj__35
-#define __pyx_codeobj__36 __pyx_mstate_global->__pyx_codeobj__36
 #define __pyx_codeobj__37 __pyx_mstate_global->__pyx_codeobj__37
-#define __pyx_codeobj__38 __pyx_mstate_global->__pyx_codeobj__38
-#define __pyx_codeobj__40 __pyx_mstate_global->__pyx_codeobj__40
-#define __pyx_codeobj__42 __pyx_mstate_global->__pyx_codeobj__42
-#define __pyx_codeobj__44 __pyx_mstate_global->__pyx_codeobj__44
 /* #### Code section: module_code ### */
 
 /* "vector.from_py":45
@@ -7679,8 +7598,8 @@ static PyObject *__pyx_pf_8necython_2skip_sampling(CYTHON_UNUSED PyObject *__pyx
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
+ * 
  */
 
 /* Python wrapper */
@@ -7888,17 +7807,16 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
-  Py_ssize_t __pyx_t_3;
-  Py_UCS4 __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  int __pyx_t_5;
+  Py_ssize_t __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *(*__pyx_t_11)(PyObject *);
+  PyObject *(*__pyx_t_10)(PyObject *);
+  network_embedding::Node __pyx_t_11;
   network_embedding::Node __pyx_t_12;
-  network_embedding::Node __pyx_t_13;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -7907,68 +7825,35 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
   /* "necython/extension.pyx":89
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("Initializing ACOWalk...")             # <<<<<<<<<<<<<<
- *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
- *     print("ACOWalk initialized successfully.")
- */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "necython/extension.pyx":90
- * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)             # <<<<<<<<<<<<<<
- *     print("ACOWalk initialized successfully.")
  * 
+ *     cdef list edge_list = []
  */
   __pyx_v_g = network_embedding::ACOWalk(__pyx_v_graph->c_graph, __pyx_v_num_walks, __pyx_v_max_step, __pyx_v_num_iterations, __pyx_v_alpha, __pyx_v_evaporate, __pyx_v_num_threads);
 
   /* "necython/extension.pyx":91
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
- *     print("ACOWalk initialized successfully.")             # <<<<<<<<<<<<<<
- * 
- *     cdef list edge_list = []
- */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "necython/extension.pyx":93
- *     print("ACOWalk initialized successfully.")
  * 
  *     cdef list edge_list = []             # <<<<<<<<<<<<<<
- *     print("Converting EdgeView to Python list...")
- * 
+ *     cdef CGraph.EdgeView edge_view = g.edges()
+ *     cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_edge_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "necython/extension.pyx":94
+  /* "necython/extension.pyx":92
  * 
  *     cdef list edge_list = []
- *     print("Converting EdgeView to Python list...")             # <<<<<<<<<<<<<<
- * 
- *     cdef CGraph.EdgeView edge_view = g.edges()
- */
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "necython/extension.pyx":96
- *     print("Converting EdgeView to Python list...")
- * 
  *     cdef CGraph.EdgeView edge_view = g.edges()             # <<<<<<<<<<<<<<
  *     cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
  *     cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()
  */
   __pyx_v_edge_view = __pyx_v_g.edges();
 
-  /* "necython/extension.pyx":97
- * 
+  /* "necython/extension.pyx":93
+ *     cdef list edge_list = []
  *     cdef CGraph.EdgeView edge_view = g.edges()
  *     cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()             # <<<<<<<<<<<<<<
  *     cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()
@@ -7976,7 +7861,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_edge_iter = __pyx_v_edge_view.begin();
 
-  /* "necython/extension.pyx":98
+  /* "necython/extension.pyx":94
  *     cdef CGraph.EdgeView edge_view = g.edges()
  *     cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
  *     cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()             # <<<<<<<<<<<<<<
@@ -7985,161 +7870,96 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_edge_end = __pyx_v_edge_view.end();
 
-  /* "necython/extension.pyx":101
+  /* "necython/extension.pyx":97
  *     cdef pair[int, int] edge
  * 
  *     while edge_iter != edge_end:             # <<<<<<<<<<<<<<
- *         print("Checking iterator...")
  *         edge = edge_iter.current()  # Call current() explicitly
+ *         edge_list.append((edge.first, edge.second))
  */
   while (1) {
     __pyx_t_2 = (__pyx_v_edge_iter != __pyx_v_edge_end);
     if (!__pyx_t_2) break;
 
-    /* "necython/extension.pyx":102
+    /* "necython/extension.pyx":98
  * 
  *     while edge_iter != edge_end:
- *         print("Checking iterator...")             # <<<<<<<<<<<<<<
- *         edge = edge_iter.current()  # Call current() explicitly
- *         print(f"Edge: ({edge.first}, {edge.second})")
- */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "necython/extension.pyx":103
- *     while edge_iter != edge_end:
- *         print("Checking iterator...")
  *         edge = edge_iter.current()  # Call current() explicitly             # <<<<<<<<<<<<<<
- *         print(f"Edge: ({edge.first}, {edge.second})")
- *         edge_list.append((edge.first, edge.second))
- */
-    __pyx_v_edge = __pyx_v_edge_iter.current();
-
-    /* "necython/extension.pyx":104
- *         print("Checking iterator...")
- *         edge = edge_iter.current()  # Call current() explicitly
- *         print(f"Edge: ({edge.first}, {edge.second})")             # <<<<<<<<<<<<<<
  *         edge_list.append((edge.first, edge.second))
  *         edge_iter.increment()  # Call increment() explicitly
  */
-    __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = 127;
-    __Pyx_INCREF(__pyx_kp_u_Edge);
-    __pyx_t_3 += 7;
-    __Pyx_GIVEREF(__pyx_kp_u_Edge);
-    PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Edge);
-    __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_edge.first, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_5);
-    __pyx_t_5 = 0;
-    __Pyx_INCREF(__pyx_kp_u__6);
-    __pyx_t_3 += 2;
-    __Pyx_GIVEREF(__pyx_kp_u__6);
-    PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u__6);
-    __pyx_t_5 = __Pyx_PyUnicode_From_int(__pyx_v_edge.second, 0, ' ', 'd'); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_t_5);
-    __pyx_t_5 = 0;
-    __Pyx_INCREF(__pyx_kp_u__7);
-    __pyx_t_3 += 1;
-    __Pyx_GIVEREF(__pyx_kp_u__7);
-    PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_u__7);
-    __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_print, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_edge = __pyx_v_edge_iter.current();
 
-    /* "necython/extension.pyx":105
+    /* "necython/extension.pyx":99
+ *     while edge_iter != edge_end:
  *         edge = edge_iter.current()  # Call current() explicitly
- *         print(f"Edge: ({edge.first}, {edge.second})")
  *         edge_list.append((edge.first, edge.second))             # <<<<<<<<<<<<<<
  *         edge_iter.increment()  # Call increment() explicitly
  * 
  */
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_edge.first); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_edge.first); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_edge.second); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_edge.second); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_1);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_5);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error);
+    __Pyx_GIVEREF(__pyx_t_3);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error);
     __pyx_t_1 = 0;
-    __pyx_t_5 = 0;
-    __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_edge_list, __pyx_t_6); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 105, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_3 = 0;
+    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_edge_list, __pyx_t_4); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "necython/extension.pyx":106
- *         print(f"Edge: ({edge.first}, {edge.second})")
+    /* "necython/extension.pyx":100
+ *         edge = edge_iter.current()  # Call current() explicitly
  *         edge_list.append((edge.first, edge.second))
  *         edge_iter.increment()  # Call increment() explicitly             # <<<<<<<<<<<<<<
  * 
- *     print("EdgeView iteration completed.")
+ *     if len(edge_list) == 0:
  */
     __pyx_v_edge_iter.increment();
   }
 
-  /* "necython/extension.pyx":108
+  /* "necython/extension.pyx":102
  *         edge_iter.increment()  # Call increment() explicitly
- * 
- *     print("EdgeView iteration completed.")             # <<<<<<<<<<<<<<
- * 
- *     if len(edge_list) == 0:
- */
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-  /* "necython/extension.pyx":110
- *     print("EdgeView iteration completed.")
  * 
  *     if len(edge_list) == 0:             # <<<<<<<<<<<<<<
  *         print("No edges found in graph.")
  *         return []
  */
-  __pyx_t_3 = __Pyx_PyList_GET_SIZE(__pyx_v_edge_list); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 110, __pyx_L1_error)
-  __pyx_t_2 = (__pyx_t_3 == 0);
+  __pyx_t_6 = __Pyx_PyList_GET_SIZE(__pyx_v_edge_list); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_2 = (__pyx_t_6 == 0);
   if (__pyx_t_2) {
 
-    /* "necython/extension.pyx":111
+    /* "necython/extension.pyx":103
  * 
  *     if len(edge_list) == 0:
  *         print("No edges found in graph.")             # <<<<<<<<<<<<<<
  *         return []
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 111, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "necython/extension.pyx":112
+    /* "necython/extension.pyx":104
  *     if len(edge_list) == 0:
  *         print("No edges found in graph.")
  *         return []             # <<<<<<<<<<<<<<
  * 
- *     print("Edges retrieved:", edge_list)
+ *     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 112, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_r = __pyx_t_6;
-    __pyx_t_6 = 0;
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_r = __pyx_t_4;
+    __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "necython/extension.pyx":110
- *     print("EdgeView iteration completed.")
+    /* "necython/extension.pyx":102
+ *         edge_iter.increment()  # Call increment() explicitly
  * 
  *     if len(edge_list) == 0:             # <<<<<<<<<<<<<<
  *         print("No edges found in graph.")
@@ -8147,50 +7967,30 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "necython/extension.pyx":114
+  /* "necython/extension.pyx":106
  *         return []
  * 
- *     print("Edges retrieved:", edge_list)             # <<<<<<<<<<<<<<
- * 
- *     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
- */
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 114, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_INCREF(__pyx_kp_u_Edges_retrieved);
-  __Pyx_GIVEREF(__pyx_kp_u_Edges_retrieved);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_kp_u_Edges_retrieved)) __PYX_ERR(0, 114, __pyx_L1_error);
-  __Pyx_INCREF(__pyx_v_edge_list);
-  __Pyx_GIVEREF(__pyx_v_edge_list);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_v_edge_list)) __PYX_ERR(0, 114, __pyx_L1_error);
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "necython/extension.pyx":116
- *     print("Edges retrieved:", edge_list)
- * 
  *     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]             # <<<<<<<<<<<<<<
- *     print("Weights computed:", phe)
  * 
+ *     return phe
  */
   { /* enter inner scope */
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L8_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __pyx_v_edge_list; __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_3 = 0;
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 106, __pyx_L8_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_3 = __pyx_v_edge_list; __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_6 = 0;
     for (;;) {
       {
-        Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+        Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
         #if !CYTHON_ASSUME_SAFE_MACROS
-        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 116, __pyx_L8_error)
+        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 106, __pyx_L8_error)
         #endif
-        if (__pyx_t_3 >= __pyx_temp) break;
+        if (__pyx_t_6 >= __pyx_temp) break;
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely((0 < 0))) __PYX_ERR(0, 116, __pyx_L8_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely((0 < 0))) __PYX_ERR(0, 106, __pyx_L8_error)
       #else
-      __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L8_error)
+      __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
@@ -8199,69 +7999,69 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 116, __pyx_L8_error)
+          __PYX_ERR(0, 106, __pyx_L8_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
-          __pyx_t_8 = PyTuple_GET_ITEM(sequence, 0); 
-          __pyx_t_9 = PyTuple_GET_ITEM(sequence, 1); 
+          __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
+          __pyx_t_8 = PyTuple_GET_ITEM(sequence, 1); 
         } else {
-          __pyx_t_8 = PyList_GET_ITEM(sequence, 0); 
-          __pyx_t_9 = PyList_GET_ITEM(sequence, 1); 
+          __pyx_t_7 = PyList_GET_ITEM(sequence, 0); 
+          __pyx_t_8 = PyList_GET_ITEM(sequence, 1); 
         }
+        __Pyx_INCREF(__pyx_t_7);
         __Pyx_INCREF(__pyx_t_8);
-        __Pyx_INCREF(__pyx_t_9);
         #else
-        __pyx_t_8 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 116, __pyx_L8_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 106, __pyx_L8_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_8 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L8_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_9 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L8_error)
-        __Pyx_GOTREF(__pyx_t_9);
         #endif
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_10 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 116, __pyx_L8_error)
-        __Pyx_GOTREF(__pyx_t_10);
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_11 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_10);
-        index = 0; __pyx_t_8 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_8)) goto __pyx_L11_unpacking_failed;
-        __Pyx_GOTREF(__pyx_t_8);
-        index = 1; __pyx_t_9 = __pyx_t_11(__pyx_t_10); if (unlikely(!__pyx_t_9)) goto __pyx_L11_unpacking_failed;
+        __pyx_t_9 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 106, __pyx_L8_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 2) < 0) __PYX_ERR(0, 116, __pyx_L8_error)
-        __pyx_t_11 = NULL;
-        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __pyx_t_10 = __Pyx_PyObject_GetIterNextFunc(__pyx_t_9);
+        index = 0; __pyx_t_7 = __pyx_t_10(__pyx_t_9); if (unlikely(!__pyx_t_7)) goto __pyx_L11_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_7);
+        index = 1; __pyx_t_8 = __pyx_t_10(__pyx_t_9); if (unlikely(!__pyx_t_8)) goto __pyx_L11_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_8);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_10(__pyx_t_9), 2) < 0) __PYX_ERR(0, 106, __pyx_L8_error)
+        __pyx_t_10 = NULL;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         goto __pyx_L12_unpacking_done;
         __pyx_L11_unpacking_failed:;
-        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __pyx_t_11 = NULL;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __pyx_t_10 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 116, __pyx_L8_error)
+        __PYX_ERR(0, 106, __pyx_L8_error)
         __pyx_L12_unpacking_done:;
       }
-      __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_u, __pyx_t_8);
+      __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_u, __pyx_t_7);
+      __pyx_t_7 = 0;
+      __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_v, __pyx_t_8);
       __pyx_t_8 = 0;
-      __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_v, __pyx_t_9);
-      __pyx_t_9 = 0;
-      __pyx_t_12 = __Pyx_PyInt_As_network_embedding_3a__3a_Node(__pyx_7genexpr__pyx_v_u); if (unlikely((__pyx_t_12 == ((network_embedding::Node)-1)) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L8_error)
-      __pyx_t_13 = __Pyx_PyInt_As_network_embedding_3a__3a_Node(__pyx_7genexpr__pyx_v_v); if (unlikely((__pyx_t_13 == ((network_embedding::Node)-1)) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L8_error)
-      __pyx_t_1 = PyFloat_FromDouble(__pyx_v_g.weight(__pyx_t_12, __pyx_t_13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L8_error)
+      __pyx_t_11 = __Pyx_PyInt_As_network_embedding_3a__3a_Node(__pyx_7genexpr__pyx_v_u); if (unlikely((__pyx_t_11 == ((network_embedding::Node)-1)) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L8_error)
+      __pyx_t_12 = __Pyx_PyInt_As_network_embedding_3a__3a_Node(__pyx_7genexpr__pyx_v_v); if (unlikely((__pyx_t_12 == ((network_embedding::Node)-1)) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L8_error)
+      __pyx_t_1 = PyFloat_FromDouble(__pyx_v_g.weight(__pyx_t_11, __pyx_t_12)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L8_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L8_error)
-      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L8_error)
+      __Pyx_GOTREF(__pyx_t_8);
       __Pyx_INCREF(__pyx_7genexpr__pyx_v_u);
       __Pyx_GIVEREF(__pyx_7genexpr__pyx_v_u);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_7genexpr__pyx_v_u)) __PYX_ERR(0, 116, __pyx_L8_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_7genexpr__pyx_v_u)) __PYX_ERR(0, 106, __pyx_L8_error);
       __Pyx_INCREF(__pyx_7genexpr__pyx_v_v);
       __Pyx_GIVEREF(__pyx_7genexpr__pyx_v_v);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_7genexpr__pyx_v_v)) __PYX_ERR(0, 116, __pyx_L8_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_7genexpr__pyx_v_v)) __PYX_ERR(0, 106, __pyx_L8_error);
       __Pyx_GIVEREF(__pyx_t_1);
-      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 2, __pyx_t_1)) __PYX_ERR(0, 116, __pyx_L8_error);
+      if (__Pyx_PyTuple_SET_ITEM(__pyx_t_8, 2, __pyx_t_1)) __PYX_ERR(0, 106, __pyx_L8_error);
       __pyx_t_1 = 0;
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 116, __pyx_L8_error)
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_8))) __PYX_ERR(0, 106, __pyx_L8_error)
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_XDECREF(__pyx_7genexpr__pyx_v_u); __pyx_7genexpr__pyx_v_u = 0;
     __Pyx_XDECREF(__pyx_7genexpr__pyx_v_v); __pyx_7genexpr__pyx_v_v = 0;
     goto __pyx_L14_exit_scope;
@@ -8271,31 +8071,11 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
     goto __pyx_L1_error;
     __pyx_L14_exit_scope:;
   } /* exit inner scope */
-  __pyx_v_phe = ((PyObject*)__pyx_t_5);
-  __pyx_t_5 = 0;
+  __pyx_v_phe = ((PyObject*)__pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "necython/extension.pyx":117
- * 
+  /* "necython/extension.pyx":108
  *     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
- *     print("Weights computed:", phe)             # <<<<<<<<<<<<<<
- * 
- *     return phe
- */
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_INCREF(__pyx_kp_u_Weights_computed);
-  __Pyx_GIVEREF(__pyx_kp_u_Weights_computed);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_kp_u_Weights_computed)) __PYX_ERR(0, 117, __pyx_L1_error);
-  __Pyx_INCREF(__pyx_v_phe);
-  __Pyx_GIVEREF(__pyx_v_phe);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_v_phe)) __PYX_ERR(0, 117, __pyx_L1_error);
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-  /* "necython/extension.pyx":119
- *     print("Weights computed:", phe)
  * 
  *     return phe             # <<<<<<<<<<<<<<
  */
@@ -8308,18 +8088,18 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
+ * 
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
   __Pyx_AddTraceback("necython.aco_walk", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -8981,18 +8761,12 @@ static PyMethodDef __pyx_methods[] = {
 
 static int __Pyx_CreateStringTabAndInitStrings(void) {
   __Pyx_StringTabEntry __pyx_string_tab[] = {
-    {&__pyx_kp_u_ACOWalk_initialized_successfully, __pyx_k_ACOWalk_initialized_successfully, sizeof(__pyx_k_ACOWalk_initialized_successfully), 0, 1, 0, 0},
     {&__pyx_n_s_BiasedWalker, __pyx_k_BiasedWalker, sizeof(__pyx_k_BiasedWalker), 0, 0, 1, 1},
     {&__pyx_n_s_BiasedWalker___reduce_cython, __pyx_k_BiasedWalker___reduce_cython, sizeof(__pyx_k_BiasedWalker___reduce_cython), 0, 0, 1, 1},
     {&__pyx_n_s_BiasedWalker___setstate_cython, __pyx_k_BiasedWalker___setstate_cython, sizeof(__pyx_k_BiasedWalker___setstate_cython), 0, 0, 1, 1},
     {&__pyx_n_s_BiasedWalker_init_distributions, __pyx_k_BiasedWalker_init_distributions, sizeof(__pyx_k_BiasedWalker_init_distributions), 0, 0, 1, 1},
     {&__pyx_n_s_BiasedWalker_simulate_walk, __pyx_k_BiasedWalker_simulate_walk, sizeof(__pyx_k_BiasedWalker_simulate_walk), 0, 0, 1, 1},
     {&__pyx_n_s_BiasedWalker_walk, __pyx_k_BiasedWalker_walk, sizeof(__pyx_k_BiasedWalker_walk), 0, 0, 1, 1},
-    {&__pyx_kp_u_Checking_iterator, __pyx_k_Checking_iterator, sizeof(__pyx_k_Checking_iterator), 0, 1, 0, 0},
-    {&__pyx_kp_u_Converting_EdgeView_to_Python_li, __pyx_k_Converting_EdgeView_to_Python_li, sizeof(__pyx_k_Converting_EdgeView_to_Python_li), 0, 1, 0, 0},
-    {&__pyx_kp_u_Edge, __pyx_k_Edge, sizeof(__pyx_k_Edge), 0, 1, 0, 0},
-    {&__pyx_kp_u_EdgeView_iteration_completed, __pyx_k_EdgeView_iteration_completed, sizeof(__pyx_k_EdgeView_iteration_completed), 0, 1, 0, 0},
-    {&__pyx_kp_u_Edges_retrieved, __pyx_k_Edges_retrieved, sizeof(__pyx_k_Edges_retrieved), 0, 1, 0, 0},
     {&__pyx_n_s_Graph, __pyx_k_Graph, sizeof(__pyx_k_Graph), 0, 0, 1, 1},
     {&__pyx_n_s_Graph___reduce_cython, __pyx_k_Graph___reduce_cython, sizeof(__pyx_k_Graph___reduce_cython), 0, 0, 1, 1},
     {&__pyx_n_s_Graph___setstate_cython, __pyx_k_Graph___setstate_cython, sizeof(__pyx_k_Graph___setstate_cython), 0, 0, 1, 1},
@@ -9000,7 +8774,6 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Graph_edges, __pyx_k_Graph_edges, sizeof(__pyx_k_Graph_edges), 0, 0, 1, 1},
     {&__pyx_n_s_Graph_from_nx_graph, __pyx_k_Graph_from_nx_graph, sizeof(__pyx_k_Graph_from_nx_graph), 0, 0, 1, 1},
     {&__pyx_n_s_Graph_remove_edge, __pyx_k_Graph_remove_edge, sizeof(__pyx_k_Graph_remove_edge), 0, 0, 1, 1},
-    {&__pyx_kp_u_Initializing_ACOWalk, __pyx_k_Initializing_ACOWalk, sizeof(__pyx_k_Initializing_ACOWalk), 0, 1, 0, 0},
     {&__pyx_n_s_MemoryError, __pyx_k_MemoryError, sizeof(__pyx_k_MemoryError), 0, 0, 1, 1},
     {&__pyx_kp_u_No_edges_found_in_graph, __pyx_k_No_edges_found_in_graph, sizeof(__pyx_k_No_edges_found_in_graph), 0, 1, 0, 0},
     {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
@@ -9012,11 +8785,8 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_Walker_set_transition_weights, __pyx_k_Walker_set_transition_weights, sizeof(__pyx_k_Walker_set_transition_weights), 0, 0, 1, 1},
     {&__pyx_n_s_Walker_simulate_walk, __pyx_k_Walker_simulate_walk, sizeof(__pyx_k_Walker_simulate_walk), 0, 0, 1, 1},
     {&__pyx_n_s_Walker_walk, __pyx_k_Walker_walk, sizeof(__pyx_k_Walker_walk), 0, 0, 1, 1},
-    {&__pyx_kp_u_Weights_computed, __pyx_k_Weights_computed, sizeof(__pyx_k_Weights_computed), 0, 1, 0, 0},
-    {&__pyx_n_s__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 0, 1, 1},
-    {&__pyx_n_s__45, __pyx_k__45, sizeof(__pyx_k__45), 0, 0, 1, 1},
-    {&__pyx_kp_u__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0, 0},
-    {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
+    {&__pyx_n_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 1},
+    {&__pyx_n_s__38, __pyx_k__38, sizeof(__pyx_k__38), 0, 0, 1, 1},
     {&__pyx_n_s_aco_walk, __pyx_k_aco_walk, sizeof(__pyx_k_aco_walk), 0, 0, 1, 1},
     {&__pyx_n_s_add_edge, __pyx_k_add_edge, sizeof(__pyx_k_add_edge), 0, 0, 1, 1},
     {&__pyx_n_s_alpha, __pyx_k_alpha, sizeof(__pyx_k_alpha), 0, 0, 1, 1},
@@ -9105,7 +8875,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_n_s_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 18, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 103, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 68, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 76, __pyx_L1_error)
   return 0;
@@ -9118,71 +8888,16 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "necython/extension.pyx":89
- * 
- * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("Initializing ACOWalk...")             # <<<<<<<<<<<<<<
- *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
- *     print("ACOWalk initialized successfully.")
- */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_Initializing_ACOWalk); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
-
-  /* "necython/extension.pyx":91
- *     print("Initializing ACOWalk...")
- *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
- *     print("ACOWalk initialized successfully.")             # <<<<<<<<<<<<<<
- * 
- *     cdef list edge_list = []
- */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_ACOWalk_initialized_successfully); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__3);
-  __Pyx_GIVEREF(__pyx_tuple__3);
-
-  /* "necython/extension.pyx":94
- * 
- *     cdef list edge_list = []
- *     print("Converting EdgeView to Python list...")             # <<<<<<<<<<<<<<
- * 
- *     cdef CGraph.EdgeView edge_view = g.edges()
- */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_Converting_EdgeView_to_Python_li); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-
-  /* "necython/extension.pyx":102
- * 
- *     while edge_iter != edge_end:
- *         print("Checking iterator...")             # <<<<<<<<<<<<<<
- *         edge = edge_iter.current()  # Call current() explicitly
- *         print(f"Edge: ({edge.first}, {edge.second})")
- */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Checking_iterator); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
-
-  /* "necython/extension.pyx":108
- *         edge_iter.increment()  # Call increment() explicitly
- * 
- *     print("EdgeView iteration completed.")             # <<<<<<<<<<<<<<
- * 
- *     if len(edge_list) == 0:
- */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u_EdgeView_iteration_completed); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__8);
-  __Pyx_GIVEREF(__pyx_tuple__8);
-
-  /* "necython/extension.pyx":111
+  /* "necython/extension.pyx":103
  * 
  *     if len(edge_list) == 0:
  *         print("No edges found in graph.")             # <<<<<<<<<<<<<<
  *         return []
  * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_u_No_edges_found_in_graph); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_No_edges_found_in_graph); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
 
   /* "necython/extension.pyx":18
  *     cdef CGraph c_graph
@@ -9191,10 +8906,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     def from_nx_graph(graph):
  *         g = Graph()
  */
-  __pyx_tuple__11 = PyTuple_Pack(4, __pyx_n_s_graph, __pyx_n_s_g, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_from_nx_graph, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(4, __pyx_n_s_graph, __pyx_n_s_g, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__4);
+  __Pyx_GIVEREF(__pyx_tuple__4);
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_from_nx_graph, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 18, __pyx_L1_error)
 
   /* "necython/extension.pyx":28
  *         self.c_graph = CGraph()
@@ -9203,10 +8918,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_graph.AddEdge(u, v, weight)
  * 
  */
-  __pyx_tuple__13 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_weight); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 28, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_add_edge, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_u, __pyx_n_s_v, __pyx_n_s_weight); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_add_edge, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 28, __pyx_L1_error)
 
   /* "necython/extension.pyx":31
  *         self.c_graph.AddEdge(u, v, weight)
@@ -9215,7 +8930,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_graph.RemoveEdge(u, v)
  * 
  */
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_remove_edge, 31, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_remove_edge, 31, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 31, __pyx_L1_error)
 
   /* "necython/extension.pyx":34
  *         self.c_graph.RemoveEdge(u, v)
@@ -9224,20 +8939,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """Generator to yield edges."""
  *         cdef CGraph.EdgeView edge_view = self.c_graph.edges()
  */
-  __pyx_tuple__16 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_edge_view, __pyx_n_s_edge_iter, __pyx_n_s_edge_end, __pyx_n_s_edge); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 34, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_edges, 34, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_edge_view, __pyx_n_s_edge_iter, __pyx_n_s_edge_end, __pyx_n_s_edge); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_codeobj_ = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_edges, 34, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 34, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__17);
-  __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -9245,10 +8960,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(1, 3, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__19);
-  __Pyx_GIVEREF(__pyx_tuple__19);
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(1, 3, __pyx_L1_error)
 
   /* "necython/extension.pyx":52
  *         self.c_walker = CWalker()
@@ -9257,10 +8972,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_walker.set_node_list(nodes)
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_nodes); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 52, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__21);
-  __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_set_node_list, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_nodes); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__14);
+  __Pyx_GIVEREF(__pyx_tuple__14);
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_set_node_list, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 52, __pyx_L1_error)
 
   /* "necython/extension.pyx":55
  *         self.c_walker.set_node_list(nodes)
@@ -9269,10 +8984,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_walker.SetTransitionWeights(node, neighbors, weights)
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_node, __pyx_n_s_neighbors, __pyx_n_s_weights); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 55, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__23);
-  __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_set_transition_weights, 55, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_node, __pyx_n_s_neighbors, __pyx_n_s_weights); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_set_transition_weights, 55, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 55, __pyx_L1_error)
 
   /* "necython/extension.pyx":58
  *         self.c_walker.SetTransitionWeights(node, neighbors, weights)
@@ -9281,10 +8996,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, weighted)
  * 
  */
-  __pyx_tuple__25 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_graph, __pyx_n_s_weighted); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 58, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__25);
-  __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_init_distributions_from_graph, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_graph, __pyx_n_s_weighted); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_init_distributions_from_graph, 58, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 58, __pyx_L1_error)
 
   /* "necython/extension.pyx":61
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, weighted)
@@ -9293,10 +9008,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
  * 
  */
-  __pyx_tuple__27 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_start_node, __pyx_n_s_walk_length); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 61, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__27);
-  __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_simulate_walk, 61, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_start_node, __pyx_n_s_walk_length); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__20);
+  __Pyx_GIVEREF(__pyx_tuple__20);
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_simulate_walk, 61, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 61, __pyx_L1_error)
 
   /* "necython/extension.pyx":64
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
@@ -9305,17 +9020,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self.c_walker.Walk(num_walks, walk_length, num_threads)
  * 
  */
-  __pyx_tuple__29 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_num_walks, __pyx_n_s_walk_length, __pyx_n_s_num_threads); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 64, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_walk, 64, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_num_walks, __pyx_n_s_walk_length, __pyx_n_s_num_threads); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__22);
+  __Pyx_GIVEREF(__pyx_tuple__22);
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_walk, 64, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 64, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -9323,7 +9038,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(1, 3, __pyx_L1_error)
 
   /* "necython/extension.pyx":73
  *         self.c_walker = CBiasedWalker()
@@ -9332,10 +9047,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, p, q)
  * 
  */
-  __pyx_tuple__33 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_graph, __pyx_n_s_p, __pyx_n_s_q); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_init_distributions_from_graph, 73, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_graph, __pyx_n_s_p, __pyx_n_s_q); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_init_distributions_from_graph, 73, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 73, __pyx_L1_error)
 
   /* "necython/extension.pyx":76
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, p, q)
@@ -9344,7 +9059,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
  * 
  */
-  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_simulate_walk, 76, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_simulate_walk, 76, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 76, __pyx_L1_error)
 
   /* "necython/extension.pyx":79
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
@@ -9353,14 +9068,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         return self.c_walker.Walk(num_walks, walk_length, num_threads)
  * 
  */
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_walk, 79, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_walk, 79, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 79, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "(tree fragment)":3
  * def __reduce_cython__(self):
@@ -9368,7 +9083,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(1, 3, __pyx_L1_error)
 
   /* "necython/extension.pyx":82
  *         return self.c_walker.Walk(num_walks, walk_length, num_threads)
@@ -9377,10 +9092,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     return WindowSampling(sequences, window_size, down_sampling, shuffle)
  * 
  */
-  __pyx_tuple__39 = PyTuple_Pack(4, __pyx_n_s_sequences, __pyx_n_s_window_size, __pyx_n_s_down_sampling, __pyx_n_s_shuffle); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 82, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__39);
-  __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_window_sampling, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(4, __pyx_n_s_sequences, __pyx_n_s_window_size, __pyx_n_s_down_sampling, __pyx_n_s_shuffle); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_window_sampling, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 82, __pyx_L1_error)
 
   /* "necython/extension.pyx":85
  *     return WindowSampling(sequences, window_size, down_sampling, shuffle)
@@ -9389,22 +9104,22 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  */
-  __pyx_tuple__41 = PyTuple_Pack(4, __pyx_n_s_sequences, __pyx_n_s_distance, __pyx_n_s_down_sampling, __pyx_n_s_shuffle); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__41);
-  __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_skip_sampling, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_tuple__34 = PyTuple_Pack(4, __pyx_n_s_sequences, __pyx_n_s_distance, __pyx_n_s_down_sampling, __pyx_n_s_shuffle); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(4, 0, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_skip_sampling, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 85, __pyx_L1_error)
 
   /* "necython/extension.pyx":88
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
+ * 
  */
-  __pyx_tuple__43 = PyTuple_Pack(16, __pyx_n_s_graph, __pyx_n_s_num_walks, __pyx_n_s_max_step, __pyx_n_s_num_iterations, __pyx_n_s_alpha, __pyx_n_s_evaporate, __pyx_n_s_num_threads, __pyx_n_s_g, __pyx_n_s_edge_list, __pyx_n_s_edge_view, __pyx_n_s_edge_iter, __pyx_n_s_edge_end, __pyx_n_s_edge, __pyx_n_s_phe, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__43);
-  __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 16, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_aco_walk, 88, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(16, __pyx_n_s_graph, __pyx_n_s_num_walks, __pyx_n_s_max_step, __pyx_n_s_num_iterations, __pyx_n_s_alpha, __pyx_n_s_evaporate, __pyx_n_s_num_threads, __pyx_n_s_g, __pyx_n_s_edge_list, __pyx_n_s_edge_view, __pyx_n_s_edge_iter, __pyx_n_s_edge_end, __pyx_n_s_edge, __pyx_n_s_phe, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__36);
+  __Pyx_GIVEREF(__pyx_tuple__36);
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(7, 0, 0, 16, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_necython_extension_pyx, __pyx_n_s_aco_walk, 88, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9882,7 +9597,7 @@ if (!__Pyx_RefNanny) {
  *     def from_nx_graph(graph):
  *         g = Graph()
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_1from_nx_graph, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_from_nx_graph, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_1from_nx_graph, __Pyx_CYFUNCTION_STATICMETHOD | __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_from_nx_graph, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Graph, __pyx_n_s_from_nx_graph, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9903,7 +9618,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_graph.AddEdge(u, v, weight)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_5add_edge, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_add_edge, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_5add_edge, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_add_edge, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Graph, __pyx_n_s_add_edge, __pyx_t_3) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9916,7 +9631,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_graph.RemoveEdge(u, v)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_7remove_edge, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_remove_edge, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_7remove_edge, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph_remove_edge, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Graph, __pyx_n_s_remove_edge, __pyx_t_3) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9940,7 +9655,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_12__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_12__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_3) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9951,7 +9666,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_14__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5Graph_14__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Graph___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_3) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9963,7 +9678,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_walker.set_node_list(nodes)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_3set_node_list, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_set_node_list, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_3set_node_list, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_set_node_list, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Walker, __pyx_n_s_set_node_list, __pyx_t_3) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9976,7 +9691,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_walker.SetTransitionWeights(node, neighbors, weights)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_5set_transition_weights, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_set_transition_weights, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_5set_transition_weights, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_set_transition_weights, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Walker, __pyx_n_s_set_transition_weights, __pyx_t_3) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9989,7 +9704,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, weighted)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_7init_distributions_from_graph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_init_distributions_from_g, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_7init_distributions_from_graph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_init_distributions_from_g, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Walker, __pyx_n_s_init_distributions_from_graph, __pyx_t_3) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10002,7 +9717,7 @@ if (!__Pyx_RefNanny) {
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_9simulate_walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_simulate_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_9simulate_walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_simulate_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Walker, __pyx_n_s_simulate_walk, __pyx_t_3) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10015,7 +9730,7 @@ if (!__Pyx_RefNanny) {
  *         return self.c_walker.Walk(num_walks, walk_length, num_threads)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_11walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_11walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_Walker, __pyx_n_s_walk, __pyx_t_3) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10026,7 +9741,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_3) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10037,7 +9752,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_6Walker_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Walker___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_3) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10049,7 +9764,7 @@ if (!__Pyx_RefNanny) {
  *         self.c_walker.InitDistributionsFromGraph(graph.c_graph, p, q)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_3init_distributions_from_graph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_init_distributions, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_3init_distributions_from_graph, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_init_distributions, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_BiasedWalker, __pyx_n_s_init_distributions_from_graph, __pyx_t_3) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10062,7 +9777,7 @@ if (!__Pyx_RefNanny) {
  *         return self.c_walker.SimulateWalk(start_node, walk_length)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_5simulate_walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_simulate_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_5simulate_walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_simulate_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_BiasedWalker, __pyx_n_s_simulate_walk, __pyx_t_3) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10075,7 +9790,7 @@ if (!__Pyx_RefNanny) {
  *         return self.c_walker.Walk(num_walks, walk_length, num_threads)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_7walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_7walk, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetItemOnTypeDict((PyObject *)__pyx_ptype_8necython_BiasedWalker, __pyx_n_s_walk, __pyx_t_3) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10086,7 +9801,7 @@ if (!__Pyx_RefNanny) {
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  * def __setstate_cython__(self, __pyx_state):
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker___reduce_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_reduce_cython, __pyx_t_3) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10097,7 +9812,7 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     raise TypeError, "no default __reduce__ due to non-trivial __cinit__"
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_12BiasedWalker_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_BiasedWalker___setstate_cython, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_3) < 0) __PYX_ERR(1, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10109,7 +9824,7 @@ if (!__Pyx_RefNanny) {
  *     return WindowSampling(sequences, window_size, down_sampling, shuffle)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_1window_sampling, 0, __pyx_n_s_window_sampling, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_1window_sampling, 0, __pyx_n_s_window_sampling, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_window_sampling, __pyx_t_3) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10121,7 +9836,7 @@ if (!__Pyx_RefNanny) {
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_3skip_sampling, 0, __pyx_n_s_skip_sampling, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_3skip_sampling, 0, __pyx_n_s_skip_sampling, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_skip_sampling, __pyx_t_3) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10130,10 +9845,10 @@ if (!__Pyx_RefNanny) {
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("Initializing ACOWalk...")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
+ * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5aco_walk, 0, __pyx_n_s_aco_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5aco_walk, 0, __pyx_n_s_aco_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_aco_walk, __pyx_t_3) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11654,250 +11369,6 @@ static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *nam
     return 0;
 }
 
-/* CIntToDigits */
-static const char DIGIT_PAIRS_10[2*10*10+1] = {
-    "00010203040506070809"
-    "10111213141516171819"
-    "20212223242526272829"
-    "30313233343536373839"
-    "40414243444546474849"
-    "50515253545556575859"
-    "60616263646566676869"
-    "70717273747576777879"
-    "80818283848586878889"
-    "90919293949596979899"
-};
-static const char DIGIT_PAIRS_8[2*8*8+1] = {
-    "0001020304050607"
-    "1011121314151617"
-    "2021222324252627"
-    "3031323334353637"
-    "4041424344454647"
-    "5051525354555657"
-    "6061626364656667"
-    "7071727374757677"
-};
-static const char DIGITS_HEX[2*16+1] = {
-    "0123456789abcdef"
-    "0123456789ABCDEF"
-};
-
-/* BuildPyUnicode */
-static PyObject* __Pyx_PyUnicode_BuildFromAscii(Py_ssize_t ulength, char* chars, int clength,
-                                                int prepend_sign, char padding_char) {
-    PyObject *uval;
-    Py_ssize_t uoffset = ulength - clength;
-#if CYTHON_USE_UNICODE_INTERNALS
-    Py_ssize_t i;
-#if CYTHON_PEP393_ENABLED
-    void *udata;
-    uval = PyUnicode_New(ulength, 127);
-    if (unlikely(!uval)) return NULL;
-    udata = PyUnicode_DATA(uval);
-#else
-    Py_UNICODE *udata;
-    uval = PyUnicode_FromUnicode(NULL, ulength);
-    if (unlikely(!uval)) return NULL;
-    udata = PyUnicode_AS_UNICODE(uval);
-#endif
-    if (uoffset > 0) {
-        i = 0;
-        if (prepend_sign) {
-            __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, 0, '-');
-            i++;
-        }
-        for (; i < uoffset; i++) {
-            __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, i, padding_char);
-        }
-    }
-    for (i=0; i < clength; i++) {
-        __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, uoffset+i, chars[i]);
-    }
-#else
-    {
-        PyObject *sign = NULL, *padding = NULL;
-        uval = NULL;
-        if (uoffset > 0) {
-            prepend_sign = !!prepend_sign;
-            if (uoffset > prepend_sign) {
-                padding = PyUnicode_FromOrdinal(padding_char);
-                if (likely(padding) && uoffset > prepend_sign + 1) {
-                    PyObject *tmp;
-                    PyObject *repeat = PyInt_FromSsize_t(uoffset - prepend_sign);
-                    if (unlikely(!repeat)) goto done_or_error;
-                    tmp = PyNumber_Multiply(padding, repeat);
-                    Py_DECREF(repeat);
-                    Py_DECREF(padding);
-                    padding = tmp;
-                }
-                if (unlikely(!padding)) goto done_or_error;
-            }
-            if (prepend_sign) {
-                sign = PyUnicode_FromOrdinal('-');
-                if (unlikely(!sign)) goto done_or_error;
-            }
-        }
-        uval = PyUnicode_DecodeASCII(chars, clength, NULL);
-        if (likely(uval) && padding) {
-            PyObject *tmp = PyNumber_Add(padding, uval);
-            Py_DECREF(uval);
-            uval = tmp;
-        }
-        if (likely(uval) && sign) {
-            PyObject *tmp = PyNumber_Add(sign, uval);
-            Py_DECREF(uval);
-            uval = tmp;
-        }
-done_or_error:
-        Py_XDECREF(padding);
-        Py_XDECREF(sign);
-    }
-#endif
-    return uval;
-}
-
-/* CIntToPyUnicode */
-static CYTHON_INLINE PyObject* __Pyx_PyUnicode_From_int(int value, Py_ssize_t width, char padding_char, char format_char) {
-    char digits[sizeof(int)*3+2];
-    char *dpos, *end = digits + sizeof(int)*3+2;
-    const char *hex_digits = DIGITS_HEX;
-    Py_ssize_t length, ulength;
-    int prepend_sign, last_one_off;
-    int remaining;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const int neg_one = (int) -1, const_zero = (int) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (format_char == 'X') {
-        hex_digits += 16;
-        format_char = 'x';
-    }
-    remaining = value;
-    last_one_off = 0;
-    dpos = end;
-    do {
-        int digit_pos;
-        switch (format_char) {
-        case 'o':
-            digit_pos = abs((int)(remaining % (8*8)));
-            remaining = (int) (remaining / (8*8));
-            dpos -= 2;
-            memcpy(dpos, DIGIT_PAIRS_8 + digit_pos * 2, 2);
-            last_one_off = (digit_pos < 8);
-            break;
-        case 'd':
-            digit_pos = abs((int)(remaining % (10*10)));
-            remaining = (int) (remaining / (10*10));
-            dpos -= 2;
-            memcpy(dpos, DIGIT_PAIRS_10 + digit_pos * 2, 2);
-            last_one_off = (digit_pos < 10);
-            break;
-        case 'x':
-            *(--dpos) = hex_digits[abs((int)(remaining % 16))];
-            remaining = (int) (remaining / 16);
-            break;
-        default:
-            assert(0);
-            break;
-        }
-    } while (unlikely(remaining != 0));
-    assert(!last_one_off || *dpos == '0');
-    dpos += last_one_off;
-    length = end - dpos;
-    ulength = length;
-    prepend_sign = 0;
-    if (!is_unsigned && value <= neg_one) {
-        if (padding_char == ' ' || width <= length + 1) {
-            *(--dpos) = '-';
-            ++length;
-        } else {
-            prepend_sign = 1;
-        }
-        ++ulength;
-    }
-    if (width > ulength) {
-        ulength = width;
-    }
-    if (ulength == 1) {
-        return PyUnicode_FromOrdinal(*dpos);
-    }
-    return __Pyx_PyUnicode_BuildFromAscii(ulength, dpos, (int) length, prepend_sign, padding_char);
-}
-
-/* JoinPyUnicode */
-static PyObject* __Pyx_PyUnicode_Join(PyObject* value_tuple, Py_ssize_t value_count, Py_ssize_t result_ulength,
-                                      Py_UCS4 max_char) {
-#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    PyObject *result_uval;
-    int result_ukind, kind_shift;
-    Py_ssize_t i, char_pos;
-    void *result_udata;
-    CYTHON_MAYBE_UNUSED_VAR(max_char);
-#if CYTHON_PEP393_ENABLED
-    result_uval = PyUnicode_New(result_ulength, max_char);
-    if (unlikely(!result_uval)) return NULL;
-    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
-    kind_shift = (result_ukind == PyUnicode_4BYTE_KIND) ? 2 : result_ukind - 1;
-    result_udata = PyUnicode_DATA(result_uval);
-#else
-    result_uval = PyUnicode_FromUnicode(NULL, result_ulength);
-    if (unlikely(!result_uval)) return NULL;
-    result_ukind = sizeof(Py_UNICODE);
-    kind_shift = (result_ukind == 4) ? 2 : result_ukind - 1;
-    result_udata = PyUnicode_AS_UNICODE(result_uval);
-#endif
-    assert(kind_shift == 2 || kind_shift == 1 || kind_shift == 0);
-    char_pos = 0;
-    for (i=0; i < value_count; i++) {
-        int ukind;
-        Py_ssize_t ulength;
-        void *udata;
-        PyObject *uval = PyTuple_GET_ITEM(value_tuple, i);
-        if (unlikely(__Pyx_PyUnicode_READY(uval)))
-            goto bad;
-        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
-        if (unlikely(!ulength))
-            continue;
-        if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - ulength < char_pos))
-            goto overflow;
-        ukind = __Pyx_PyUnicode_KIND(uval);
-        udata = __Pyx_PyUnicode_DATA(uval);
-        if (!CYTHON_PEP393_ENABLED || ukind == result_ukind) {
-            memcpy((char *)result_udata + (char_pos << kind_shift), udata, (size_t) (ulength << kind_shift));
-        } else {
-            #if PY_VERSION_HEX >= 0x030d0000
-            if (unlikely(PyUnicode_CopyCharacters(result_uval, char_pos, uval, 0, ulength) < 0)) goto bad;
-            #elif CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030300F0 || defined(_PyUnicode_FastCopyCharacters)
-            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
-            #else
-            Py_ssize_t j;
-            for (j=0; j < ulength; j++) {
-                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
-                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
-            }
-            #endif
-        }
-        char_pos += ulength;
-    }
-    return result_uval;
-overflow:
-    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
-bad:
-    Py_DECREF(result_uval);
-    return NULL;
-#else
-    CYTHON_UNUSED_VAR(max_char);
-    CYTHON_UNUSED_VAR(result_ulength);
-    CYTHON_UNUSED_VAR(value_count);
-    return PyUnicode_Join(__pyx_empty_unicode, value_tuple);
-#endif
-}
-
 /* FixUpExtensionType */
 #if CYTHON_USE_TYPE_SPECS
 static int __Pyx_fix_up_extension_type_from_spec(PyType_Spec *spec, PyTypeObject *type) {
@@ -12554,7 +12025,7 @@ static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *
 #endif
 static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
 #if PY_MAJOR_VERSION < 3
-    PyObject *module, *from_list, *star = __pyx_n_s__10;
+    PyObject *module, *from_list, *star = __pyx_n_s__3;
     CYTHON_UNUSED_VAR(parts_tuple);
     from_list = PyList_New(1);
     if (unlikely(!from_list))
@@ -15168,7 +14639,7 @@ __Pyx_PyType_GetName(PyTypeObject* tp)
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) {
         PyErr_Clear();
         Py_XDECREF(name);
-        name = __Pyx_NewRef(__pyx_n_s__45);
+        name = __Pyx_NewRef(__pyx_n_s__38);
     }
     return name;
 }

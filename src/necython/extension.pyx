@@ -86,34 +86,23 @@ def skip_sampling(list sequences, size_t distance, double down_sampling, bool sh
     return SkipSampling(sequences, distance, down_sampling, shuffle)
 
 def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
-    print("Initializing ACOWalk...")
     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
-    print("ACOWalk initialized successfully.")
 
     cdef list edge_list = []
-    print("Converting EdgeView to Python list...")
-
     cdef CGraph.EdgeView edge_view = g.edges()
     cdef CGraph.EdgeView.Iterator edge_iter = edge_view.begin()
     cdef CGraph.EdgeView.Iterator edge_end = edge_view.end()
     cdef pair[int, int] edge
 
     while edge_iter != edge_end:
-        print("Checking iterator...")
         edge = edge_iter.current()  # Call current() explicitly
-        print(f"Edge: ({edge.first}, {edge.second})")
         edge_list.append((edge.first, edge.second))
         edge_iter.increment()  # Call increment() explicitly
-
-    print("EdgeView iteration completed.")
 
     if len(edge_list) == 0:
         print("No edges found in graph.")
         return []
 
-    print("Edges retrieved:", edge_list)
-
     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
-    print("Weights computed:", phe)
 
     return phe

@@ -4,7 +4,7 @@ import numpy as np
 
 class MLNE(object):
 
-    def __init__(self, graph, dimension, Model, Coarsening, num_scales=4):
+    def __init__(self, graph, dimension, Model, Coarsening, num_scales=2):
         self.original_graph = graph
         self.dimension = dimension
         self.Model = Model

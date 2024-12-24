@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 import numpy as np
 import networkx as nx
 import pprint
@@ -11,7 +11,7 @@ class BaseCoarsening(object):
         nx.set_node_attributes(graph, 1, 'size')
         self.original_graph = graph
         self.graphs = [graph]
-        self.mappings = [{node:[node] for node in graph.nodes}]
+        self.mappings = [{node: [node] for node in graph.nodes}]
         self.threshold = threshold
         self.weighted = weighted
 
@@ -33,27 +33,26 @@ class BaseCoarsening(object):
         return mappings_orig
 
     def reverse_mapping(self, mapping):
-        return {node:super_node for super_node, nodes in mapping.items() for node in nodes}
+        return {node: super_node for super_node, nodes in mapping.items() for node in nodes}
 
     def merge_result_to_mapping(self, merge_result):
         return dict(enumerate(merge_result))
 
     def extend_mapping(self, mapping_last, mapping_current):
-        extended_mapping = {super_node:[] for super_node in mapping_current}
+        extended_mapping = {super_node: [] for super_node in mapping_current}
         for super_node, nodes in mapping_current.items():
             for node in nodes:
                 extended_mapping[super_node].extend(mapping_last[node])
         return extended_mapping
 
-
     def gen_merged_graph(self, graph, merge_result):
-        rev_mapping = {node:super_node for super_node, nodes in enumerate(merge_result) for node in nodes}
+        rev_mapping = {node: super_node for super_node, nodes in enumerate(merge_result) for node in nodes}
         num_new_nodes = len(merge_result)
         rows, cols, vals = [], [], []
         for u, v in graph.edges:
             su = rev_mapping[u]
             sv = rev_mapping[v]
-            if su==sv:
+            if su == sv:
                 continue
             w = graph[u][v]['weight']
             rows.append(su)
@@ -74,20 +73,21 @@ class BaseCoarsening(object):
         for super_node, nodes in enumerate(merge_result):
             sum_size = np.sum([graph.nodes[node]['size'] for node in nodes])
             new_graph.nodes[super_node]['size'] = sum_size
-        
+
         return new_graph
+
     ########### START ALGORITHM 4 ############
     def recursive_merge(self):
-        edge_threshold = self.original_graph.number_of_edges()*self.threshold
-        node_threshold = self.original_graph.number_of_nodes()*self.threshold
+        edge_threshold = self.original_graph.number_of_edges() * self.threshold
+        node_threshold = self.original_graph.number_of_nodes() * self.threshold
         while True:
             cur_graph = self.graphs[-1]
-            merge_result = self.merge(cur_graph) # LINE 4 + 5
-            if len(merge_result) == cur_graph.number_of_nodes(): # no edge in the graph
+            merge_result = self.merge(cur_graph)  # LINE 4 + 5
+            if len(merge_result) == cur_graph.number_of_nodes():  # no edge in the graph
                 break
-            new_graph = self.gen_merged_graph(cur_graph, merge_result) # LINE 6 AT ALGORITHM 4
+            new_graph = self.gen_merged_graph(cur_graph, merge_result)  # LINE 6 AT ALGORITHM 4
             self.graphs.append(new_graph)
             self.mappings.append(self.merge_result_to_mapping(merge_result))
-            if new_graph.number_of_nodes()<node_threshold or new_graph.number_of_edges()<edge_threshold:
+            if new_graph.number_of_nodes() < node_threshold or new_graph.number_of_edges() < edge_threshold:
                 break
     ########### END ALGORITHM 4 ############
