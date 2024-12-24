@@ -1,10 +1,12 @@
 # coding:utf-8
 import numpy as np
 
+from src.config import Config
+
 
 class MLNE(object):
 
-    def __init__(self, graph, dimension, Model, Coarsening, num_scales=2):
+    def __init__(self, graph, dimension, Model, Coarsening, num_scales=Config.PYRAMID_SCALES):
         self.original_graph = graph
         self.dimension = dimension
         self.Model = Model
@@ -33,14 +35,14 @@ class MLNE(object):
         indices = []
         for i, g in enumerate(graphs):
             # Reducing the number of nodes by at least 3% compared to the previous graph is considered significant.
-            if prev_nodes is None or g.number_of_nodes()<prev_nodes*0.97:
+            if prev_nodes is None or g.number_of_nodes() < prev_nodes * 0.97:
                 indices.append(i)
                 prev_nodes = g.number_of_nodes()
 
         # Determine the number of scales and select indices to use for training
         num_scales = min(len(indices), self.num_scales)
-        step = len(indices)/num_scales
-        selected_indices = [int(np.ceil(i*step)) for i in range(num_scales)]
+        step = len(indices) / num_scales
+        selected_indices = [int(np.ceil(i * step)) for i in range(num_scales)]
         selected_indices = [indices[i] for i in selected_indices]
 
         # Get the graphs and mappings for the selected indices
@@ -62,19 +64,15 @@ class MLNE(object):
             embeddings = np.ndarray(shape=(self.original_graph.number_of_nodes(), dimension))
             # Assign embeddings from the model to the corresponding nodes in the original graph
             for node, super_node in rev_mapping.items():
-                embeddings[node,:] = results[super_node,:]
+                embeddings[node, :] = results[super_node, :]
             # Concatenate new embeddings with existing embeddings, embedding matrix!
             self.embeddings = np.concatenate([self.embeddings, embeddings], axis=1)
 
         # self.embeddings = self.dimension_reduction(self.embeddings, self.dimension)
-        
+
         return self
         # """ END OF ALGORITHM 1 """
 
-        
     def get_embeddings(self):
         # Return the concatenated embeddings from all scales
         return self.embeddings
-
-
-            

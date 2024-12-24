@@ -6,6 +6,7 @@ from netorch.models.walkbased import Node2Vec
 from netorch.models.hierarchical import MLNE
 from scipy.spatial.distance import cosine
 from scipy.special import expit  # Sigmoid function
+from config import Config
 
 
 class ResearchPlan:
@@ -29,9 +30,8 @@ class ResearchPlan:
             model = MLNE(
                 graph=g_tag,
                 dimension=self.d,
-                Model=lambda graph, dimension: Node2Vec(graph, dimension=dimension, batch_size=5000, iterations=1, p=1,
-                                                        q=1),
-                Coarsening=lambda graph: ACOCoarsening(graph, phe_power=.5, iterations=1),
+                Model=lambda graph, dimension: Node2Vec(graph, dimension=dimension, batch_size=Config.NODE2VEC_BATCH_SIZE, iterations=Config.NODE2VEC_ITERATIONS, p=Config.NODE2VEC_P, q=Config.NODE2VEC_Q),
+                Coarsening=lambda graph: ACOCoarsening(graph, phe_power=Config.ALPHA, iterations=Config.ACO_COARSENING_ITERATIONS),
             )
             # start the process and receive the embedding matrix
             embedding_matrix = model.train().get_embeddings()
@@ -122,7 +122,7 @@ def CalculateStatistics(similarity_matrix_list, K):
 
     Args:
         similarity_matrix_list (list of numpy.ndarray): A list of boolean similarity matrices.
-        K number of matrices in the similarity_matrix_list
+        int K number of matrices in the similarity_matrix_list
 
     Returns:
         numpy.ndarray: The calculated statistical matrix with percentage values.
@@ -165,8 +165,7 @@ def RefineGraph(g, M_stat, t2):
     num_nodes = M_stat.shape[0]
     for m in range(num_nodes):
         for n in range(m + 1, num_nodes):  # Only consider upper triangular part to avoid duplicates
-            if M_stat[m, n] < t2:
-                if g.has_edge(m, n):
-                    g.remove_edge(m, n)
+            if M_stat[m, n] < t2 and g.has_edge(m, n):
+                g.remove_edge(m, n)
 
     return g

@@ -58,7 +58,3 @@ def AddingEdges(g, p):
         g.add_edge(u, v, weight=1)
 
     return g, edges_to_add
-
-
-
-

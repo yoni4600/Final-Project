@@ -1,6 +1,7 @@
 import networkx as nx
 from netorch.dataset import load_edgelist, load_labels
 from src.evaluation_plan import EvaluationPlan
+from config import Config
 
 
 def main():
@@ -13,9 +14,9 @@ def main():
     g, labels = load_edgelist(EDGES_TXT), load_labels(LABELS_TXT)
     g = nx.convert_node_labels_to_integers(g)
 
-    EP = EvaluationPlan(g, d=128, t1=0.5, t2=50, p=30, K=1)
+    EP = EvaluationPlan(g, d=Config.DIMENSION, t1=Config.TRESHOLD1, t2=Config.TRESHOLD2, p=Config.PERCENTAGE, K=Config.K)
     successRate = EP.EvaluationPlanAlg()
-    print("The success rate of this run is: " + successRate)
+    print("The success rate of this run is: " + str(successRate))
 
 
 if __name__ == "__main__":
