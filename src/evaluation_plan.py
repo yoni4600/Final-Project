@@ -1,3 +1,5 @@
+import datetime
+import os
 import random
 from src.research_plan import ResearchPlan
 import numpy as np
@@ -28,16 +30,21 @@ class EvaluationPlan:
             if (u, v) not in GR_edges:
                 count += 1
 
-        plot_edge_histograms(self.g.edges, summed_matrices, self.K)
+        try:
+            plot_edge_histograms(self.g.edges, summed_matrices, self.K)
+        except Exception as e:
+            print(f"An error occurred while plotting histograms: {str(e)}")
+            import traceback
+            traceback.print_exc()
 
         successRate = (count / len(e_tag)) * 100
         return successRate
 
 
-def plot_edge_histograms(graph_edges, matrix, max_value, block_size=500, title="Edge Histogram"):
+def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="Edge Histogram"):
     """
     Plots histograms in blocks, where the x-axis represents edges in `graph_edges` and the y-axis is the corresponding
-    values in the `matrix`.
+    values in the `matrix`. Saves the plots in a timestamped subdirectory inside `src/plots`.
 
     Args:
         graph_edges (list): List of edges to represent on the x-axis (e.g., `self.g.edges`).
@@ -48,6 +55,12 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=500, title="
     """
     edges = list(graph_edges)
     total_edges = len(edges)
+
+    # Create a timestamped directory
+    base_dir = "src/plots"
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    output_dir = os.path.join(base_dir, timestamp)
+    os.makedirs(output_dir, exist_ok=True)
 
     # Calculate the number of blocks
     num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
@@ -74,7 +87,13 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=500, title="
         plt.xticks(rotation=90, fontsize=8)
         plt.grid(axis="y", linestyle="--", alpha=0.7)
         plt.tight_layout()
-        plt.show()
+
+        # Save the plot in the timestamped directory
+        filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
+        plt.savefig(filename)
+        plt.close()
+
+        print(f"Saved plot to {filename}")
 
 
 def AddingEdges(g, p):

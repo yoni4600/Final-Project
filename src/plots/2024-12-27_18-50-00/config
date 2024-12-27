@@ -1,5 +1,3 @@
-
-class Config:
     DIMENSION = 128
     TRESHOLD1 = 0.8
     TRESHOLD2 = 40
