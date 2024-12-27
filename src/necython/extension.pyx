@@ -86,6 +86,7 @@ def skip_sampling(list sequences, size_t distance, double down_sampling, bool sh
     return SkipSampling(sequences, distance, down_sampling, shuffle)
 
 def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
+    print("\tStart executing Algorithm 2 - ACWalk ..")
     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
 
     cdef list edge_list = []

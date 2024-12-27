@@ -13,11 +13,14 @@ class EvaluationPlan:
         self.K = K
 
     def EvaluationPlanAlg(self):
+        print(f"Adding {self.p}% randomly edges to the graph")
         g_tag, e_tag = AddingEdges(self.g, self.p)
         RP = ResearchPlan(g_tag, self.d, self.t1, self.t2, self.p, self.K)
+        print("Start Research plan algorithm ..")
         G_R = RP.ResearchPlanAlg()
         GR_edges = G_R.edges
 
+        print("Calculating the success rate ..")
         count = 0
         for edge in e_tag:
             if edge not in GR_edges:
