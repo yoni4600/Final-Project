@@ -1,5 +1,7 @@
 import random
 from src.research_plan import ResearchPlan
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 class EvaluationPlan:
@@ -17,17 +19,62 @@ class EvaluationPlan:
         g_tag, e_tag = AddingEdges(self.g, self.p)
         RP = ResearchPlan(g_tag, self.d, self.t1, self.t2, self.p, self.K)
         print("Start Research plan algorithm ..")
-        G_R = RP.ResearchPlanAlg()
+        G_R, summed_matrices = RP.ResearchPlanAlg()
         GR_edges = G_R.edges
 
         print("Calculating the success rate ..")
         count = 0
-        for edge in e_tag:
-            if edge not in GR_edges:
+        for u, v in e_tag:
+            if (u, v) not in GR_edges:
                 count += 1
 
-        successRate = count / len(e_tag) * 100
+        plot_edge_histograms(self.g.edges, summed_matrices, self.K)
+
+        successRate = (count / len(e_tag)) * 100
         return successRate
+
+
+def plot_edge_histograms(graph_edges, matrix, max_value, block_size=500, title="Edge Histogram"):
+    """
+    Plots histograms in blocks, where the x-axis represents edges in `graph_edges` and the y-axis is the corresponding
+    values in the `matrix`.
+
+    Args:
+        graph_edges (list): List of edges to represent on the x-axis (e.g., `self.g.edges`).
+        matrix (np.ndarray): The matrix containing the values for each edge.
+        max_value (int): Maximum value in the matrix (e.g., `self.K`).
+        block_size (int): Number of edges to include in each plot block.
+        title (str): Title of the histogram plots.
+    """
+    edges = list(graph_edges)
+    total_edges = len(edges)
+
+    # Calculate the number of blocks
+    num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
+
+    # Iterate through blocks of edges
+    for block_idx in range(num_blocks):
+        start_idx = block_idx * block_size
+        end_idx = min(start_idx + block_size, total_edges)
+        block_edges = edges[start_idx:end_idx]
+        values = [matrix[u][v] for u, v in block_edges]
+
+        # Create the histogram for the current block
+        plt.figure(figsize=(14, 8))
+        plt.bar(
+            [f"({u},{v})" for u, v in block_edges],
+            values,
+            color="blue",
+            edgecolor="black",
+            alpha=0.75
+        )
+        plt.title(f"{title} (Block {block_idx + 1}/{num_blocks})")
+        plt.xlabel("Edges (first_node, second_node)")
+        plt.ylabel(f"Cell Values (0 to {max_value})")
+        plt.xticks(rotation=90, fontsize=8)
+        plt.grid(axis="y", linestyle="--", alpha=0.7)
+        plt.tight_layout()
+        plt.show()
 
 
 def AddingEdges(g, p):

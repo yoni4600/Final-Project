@@ -43,10 +43,10 @@ class ResearchPlan:
 
         print("Finished the K iterations")
         print("Calculating the statistical matrix ..")
-        M_Stat = CalculateStatistics(similarity_matrix_list, self.K)
+        M_Stat, summed_matrices = CalculateStatistics(similarity_matrix_list, self.K)
         print("Refining the graph based on threshold 2 ..")
         G_R = RefineGraph(self.g.copy(), M_Stat, self.t2)
-        return G_R
+        return G_R, summed_matrices
 
 # result = evaluate({lookup.index_to_label(index):embedding[index] for index in range(g.number_of_nodes())}, labels, clf_ratio=0.5)
 # print(result)
@@ -105,7 +105,7 @@ def CalculateCosineSimilarity(embedding_matrix, t1):
             res = dot_product / (magnitude_m * magnitude_n)
 
             # Normalize the results from range [-1,1] to [0,1]
-            res = (res + 1)/2
+            # res = (res + 1)/2
 
             # Normalize with sigmoid
             # res = expit(res)
@@ -151,7 +151,7 @@ def CalculateStatistics(similarity_matrix_list, K):
     # Calculate the statistical matrix
     M_stat = (summed_matrix / K) * 100
 
-    return M_stat
+    return M_stat, summed_matrix
 
 
 def RefineGraph(g, M_stat, t2):
@@ -171,7 +171,10 @@ def RefineGraph(g, M_stat, t2):
     num_nodes = M_stat.shape[0]
     for m in range(num_nodes):
         for n in range(m + 1, num_nodes):  # Only consider upper triangular part to avoid duplicates
-            if M_stat[m, n] < t2 and g.has_edge(m, n):
-                g.remove_edge(m, n)
+            if M_stat[m, n] < t2:
+                if g.has_edge(m, n):
+                    g.remove_edge(m, n)
+                elif g.has_edge(n, m):
+                    g.remove_edge(n, m)
 
     return g
