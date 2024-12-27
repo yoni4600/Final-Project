@@ -57,7 +57,7 @@ class MLNE(object):
         print("\tStart the embedding on each layer of the pyramid ..")
         # Train embedding on each selected graph layer
         for i, (graph, mapping, dimension) in enumerate(zip(train_graphs, train_mappings, dimensions)):
-            print('\t\tTraining graph#{} #nodes={} #edges={}'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
+            print('\tTraining graph#{} #nodes={} #edges={}'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
             # Reverse the mapping for embedding assignment
             rev_mapping = coarsening.reverse_mapping(mapping)
             # Initialize and train the embedding model
