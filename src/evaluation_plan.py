@@ -5,9 +5,11 @@ from research_plan import ResearchPlan
 import numpy as np
 import matplotlib.pyplot as plt
 from config import Config
+from datetime import datetime
 
+BaseDir =""
 class EvaluationPlan:
-
+    
     def __init__(self, g, d, t1, t2, p, K):
         self.g = g
         self.d = d
@@ -57,11 +59,32 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="
     total_edges = len(edges)
 
     # Create a timestamped directory
-    base_dir = "src/plots"
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    output_dir = os.path.join(base_dir, timestamp)
+    base_dir = os.path.join(BaseDir, 'plots')
+    current_time = datetime.now().strftime("%d-%m-%Y_%H-%M")
+    output_dir = os.path.join(base_dir, current_time)
     os.makedirs(output_dir, exist_ok=True)
+    #save config file in run directory
+    Config.save_to_json(filename=os.path.join(output_dir,f"RunConfig.json"))
+    
+    # Extract values from the matrix based on graph_edges
+    values_from_edges = [matrix[i, j] for i, j in graph_edges]
 
+    # Count occurrences of each value (0 to k) in the filtered values
+    unique, counts = np.unique(values_from_edges, return_counts=True)
+
+    # Calculate percentages
+    percentages = (counts / len(graph_edges)) * 100
+
+    # Plot the pie chart
+    plt.figure(figsize=(8, 8))
+    plt.pie(
+        percentages,
+        labels=[f"Value {val}" for val in unique],
+        autopct='%1.1f%%',  # Format percentages
+        startangle=90,      # Rotate the chart for better appearance
+        colors=plt.cm.tab10.colors[:len(unique)]  # Use different colors
+    )
+    plt.savefig(os.path.join(output_dir, "graph_edges_distribution.png"))
     # Calculate the number of blocks
     num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
 
@@ -75,7 +98,7 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="
         # Create the histogram for the current block
         plt.figure(figsize=(14, 8))
         plt.bar(
-            [f"({u},{v})" for u, v in block_edges],
+            range(len(block_edges)),
             values,
             color="blue",
             edgecolor="black",
@@ -88,18 +111,9 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="
         plt.grid(axis="y", linestyle="--", alpha=0.7)
         plt.tight_layout()
 
-        # Save the plot in the timestamped directory
-        current_time = datetime.now().strftime("%d-%m-%Y_%H-%M")
-
-        # Create the directory path
-        output_dir_with_time = os.path.join(output_dir, current_time)
-
-        # Ensure the directory exists
-        os.makedirs(output_dir_with_time, exist_ok=True)
 
         # Create the file path
-        filename = os.path.join(output_dir_with_time, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
-        Config.save_to_json(filename=os.path.join(output_dir_with_time,f"RunConfig.json"))
+        filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
         plt.savefig(filename)
         plt.close()
 

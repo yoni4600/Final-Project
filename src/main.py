@@ -7,8 +7,8 @@ from config import Config
 def main():
     DATASET = 'cora'
     DATASET_DIR = 'datasets'
-    EDGES_TXT = 'src/{}/{}_edgelist.txt'.format(DATASET_DIR, DATASET)
-    LABELS_TXT = 'src/{}/{}_labels.txt'.format(DATASET_DIR, DATASET)
+    EDGES_TXT = '{}/{}_edgelist.txt'.format(DATASET_DIR, DATASET)
+    LABELS_TXT = '{}/{}_labels.txt'.format(DATASET_DIR, DATASET)
 
     # loads the graph
     print(f"Loads the selected Data set: {DATASET}")
