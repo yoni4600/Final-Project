@@ -1,10 +1,10 @@
 import datetime
 import os
 import random
-from src.research_plan import ResearchPlan
+from research_plan import ResearchPlan
 import numpy as np
 import matplotlib.pyplot as plt
-
+from config import Config
 
 class EvaluationPlan:
 
@@ -89,7 +89,17 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="
         plt.tight_layout()
 
         # Save the plot in the timestamped directory
-        filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
+        current_time = datetime.now().strftime("%d-%m-%Y_%H-%M")
+
+        # Create the directory path
+        output_dir_with_time = os.path.join(output_dir, current_time)
+
+        # Ensure the directory exists
+        os.makedirs(output_dir_with_time, exist_ok=True)
+
+        # Create the file path
+        filename = os.path.join(output_dir_with_time, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
+        Config.save_to_json(filename=os.path.join(output_dir_with_time,f"RunConfig.json"))
         plt.savefig(filename)
         plt.close()
 

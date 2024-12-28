@@ -1,7 +1,7 @@
 # coding:utf-8
 import numpy as np
 
-from src.config import Config
+from config import Config
 
 
 class MLNE(object):
