@@ -148,3 +148,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+src/necython/extension.cpp
+src/necython.cp39-win_amd64.pdb
+src/vc140.pdb
+src/necython/extension.cpp

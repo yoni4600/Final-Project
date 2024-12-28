@@ -19,7 +19,7 @@
         ],
         "include_dirs": [
             "necython",
-            "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\core\\include",
+            "E:\\git\\Final-Project\\.venv\\lib\\site-packages\\numpy\\core\\include",
             "necython/cpp"
         ],
         "language": "c++",
