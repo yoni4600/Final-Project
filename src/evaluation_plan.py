@@ -33,7 +33,7 @@ class EvaluationPlan:
                 count += 1
 
         try:
-            plot_edge_histograms(self.g.edges, summed_matrices, self.K)
+            plot_edge_histograms(self.g.edges, summed_matrices, self.K, g_tag.edges, e_tag , GR_edges, count)
         except Exception as e:
             print(f"An error occurred while plotting histograms: {str(e)}")
             import traceback
@@ -43,7 +43,7 @@ class EvaluationPlan:
         return successRate
 
 
-def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="Edge Histogram"):
+def plot_edge_histograms(graph_edges, matrix, max_value, manipulated_graph_edges ,fake_edges , refined_graph_edges, fake_edges_removed, block_size=250, title="Edge Histogram"):
     """
     Plots histograms in blocks, where the x-axis represents edges in `graph_edges` and the y-axis is the corresponding
     values in the `matrix`. Saves the plots in a timestamped subdirectory inside `src/plots`.
@@ -75,49 +75,82 @@ def plot_edge_histograms(graph_edges, matrix, max_value, block_size=250, title="
     # Calculate percentages
     percentages = (counts / len(graph_edges)) * 100
 
-    # Plot the pie chart
-    plt.figure(figsize=(8, 8))
-    plt.pie(
-        percentages,
-        labels=[f"Value {val}" for val in unique],
-        autopct='%1.1f%%',  # Format percentages
-        startangle=90,      # Rotate the chart for better appearance
-        colors=plt.cm.tab10.colors[:len(unique)]  # Use different colors
-    )
-    plt.savefig(os.path.join(output_dir, "graph_edges_distribution.png"))
+    # Plot the bar chart
+    plt.figure(figsize=(12, 8))  # Adjust size to fit many categories
+    bars = plt.barh(unique, percentages, color=plt.cm.viridis(np.linspace(0, 1, len(unique))))
+    for bar, category in zip(bars, unique):
+        custom_text = f" Times restored = {category}"  # Add a prefix or other information
+        plt.text(-2, bar.get_y() + bar.get_height() / 2, custom_text, va='center', ha='right')  # Place the custom text
+    for bar, percentage in zip(bars, percentages):
+        plt.text(bar.get_width() + 0.5, bar.get_y() + bar.get_height() / 2, f"{percentage:.1f}%", va='center')
+    
+    # Remove x and y axes
+    plt.gca().axes.get_xaxis().set_visible(False)
+    plt.gca().axes.get_yaxis().set_visible(False)
+    for spine in plt.gca().spines.values():
+        spine.set_visible(False)
+    # Add a title
+    plt.title(f'Edges Distribution throughout K(={Config.K}) iterations, Threshold t1 = {Config.TRESHOLD1}, Threshold t2 ={Config.TRESHOLD2}')
+    # Add conclusion text under the bars
+    total_edges_removed = len(manipulated_graph_edges)-len(refined_graph_edges)
+    conclusion_text1 = f"Total amount of edges removed from the manipulated Graph = {total_edges_removed}, equals to {(total_edges_removed / len(manipulated_graph_edges)) * 100}%"
+    count = 0
+    for u,v in graph_edges:
+        if(u,v) not in fake_edges and (u,v) in refined_graph_edges:
+            count += 1
+    real_edges_removed = len(graph_edges) - count
+    conclusion_text2 =f"Total amout of edges removed from the REAL Graph = {real_edges_removed}, equals to {(real_edges_removed / len(graph_edges)) * 100}%"
+    successRate = (fake_edges_removed / len(fake_edges)) * 100
+    conclusion_text3 = f"Total amount of 'fake' edges removed = {fake_edges_removed}, thus the success rate of this run is {successRate:.3f}%"
+    conclusion_text = f"{conclusion_text1}\n{conclusion_text2}\n{conclusion_text3}"
+    # Use figtext to place text outside the axes, under the bars
+    plt.figtext(0.5, -0.1, conclusion_text, ha='center', va='top', fontsize=12, color='black', wrap=True)
+    
+    plt.savefig(os.path.join(output_dir, "graph_edges_distribution_BarChart.png"))
+    
+    # # Plot the pie chart
+    # plt.figure(figsize=(8, 8))
+    # plt.pie(
+    #     percentages,
+    #     labels=[f"Value {val}" for val in unique],
+    #     autopct='%1.1f%%',  # Format percentages
+    #     startangle=90,      # Rotate the chart for better appearance
+    #     colors=plt.cm.tab10.colors[:len(unique)]  # Use different colors
+    # )
+    # plt.savefig(os.path.join(output_dir, "graph_edges_distribution_PieChart.png"))
     # Calculate the number of blocks
-    num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
+    
+    
+    # num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
 
-    # Iterate through blocks of edges
-    for block_idx in range(num_blocks):
-        start_idx = block_idx * block_size
-        end_idx = min(start_idx + block_size, total_edges)
-        block_edges = edges[start_idx:end_idx]
-        values = [matrix[u][v] for u, v in block_edges]
+    # # Iterate through blocks of edges
+    # for block_idx in range(num_blocks):
+    #     start_idx = block_idx * block_size
+    #     end_idx = min(start_idx + block_size, total_edges)
+    #     block_edges = edges[start_idx:end_idx]
+    #     values = [matrix[u][v] for u, v in block_edges]
 
-        # Create the histogram for the current block
-        plt.figure(figsize=(14, 8))
-        plt.bar(
-            range(len(block_edges)),
-            values,
-            color="blue",
-            edgecolor="black",
-            alpha=0.75
-        )
-        plt.title(f"{title} (Block {block_idx + 1}/{num_blocks})")
-        plt.xlabel("Edges (first_node, second_node)")
-        plt.ylabel(f"Cell Values (0 to {max_value})")
-        plt.xticks(rotation=90, fontsize=8)
-        plt.grid(axis="y", linestyle="--", alpha=0.7)
-        plt.tight_layout()
+    #     # Create the histogram for the current block
+    #     plt.figure(figsize=(14, 8))
+    #     plt.bar(
+    #         range(len(block_edges)),
+    #         values,
+    #         color="blue",
+    #         edgecolor="black",
+    #         alpha=0.75
+    #     )
+    #     plt.title(f"{title} (Block {block_idx + 1}/{num_blocks})")
+    #     plt.xlabel("Edges (first_node, second_node)")
+    #     plt.ylabel(f"Cell Values (0 to {max_value})")
+    #     plt.xticks(rotation=90, fontsize=8)
+    #     plt.grid(axis="y", linestyle="--", alpha=0.7)
+    #     plt.tight_layout()
 
 
-        # Create the file path
-        filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
-        plt.savefig(filename)
-        plt.close()
-
-        print(f"Saved plot to {filename}")
+    #     # Create the file path
+    #     filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
+    #     plt.savefig(filename)
+    #     plt.close()
 
 
 def AddingEdges(g, p):
