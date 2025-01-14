@@ -4,17 +4,17 @@ import os
 class Config:
     # Class attributes
     DIMENSION = 128
-    TRESHOLD1 = 0.7
-    TRESHOLD2 = 40
+    TRESHOLD1 = 0.8
+    TRESHOLD2 = 60
     PERCENTAGE = 30
-    K = 10
+    K = 20
     NODE2VEC_ITERATIONS = 3
     ACO_COARSENING_ITERATIONS = 2
     ALPHA = 0.5
     NODE2VEC_BATCH_SIZE = 5000
     NODE2VEC_P = 1
     NODE2VEC_Q = 1
-    PYRAMID_SCALES = 8
+    PYRAMID_SCALES = 6
 
     @classmethod
     def save_to_json(cls, filename):

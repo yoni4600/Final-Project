@@ -80,7 +80,7 @@ def plot_edge_histograms(graph_edges, matrix, max_value, manipulated_graph_edges
     bars = plt.barh(unique, percentages, color=plt.cm.viridis(np.linspace(0, 1, len(unique))))
     for bar, category in zip(bars, unique):
         custom_text = f" Times restored = {category}"  # Add a prefix or other information
-        plt.text(-2, bar.get_y() + bar.get_height() / 2, custom_text, va='center', ha='right')  # Place the custom text
+        plt.text(-1, bar.get_y() + bar.get_height() / 2, custom_text, va='center', ha='right')  # Place the custom text
     for bar, percentage in zip(bars, percentages):
         plt.text(bar.get_width() + 0.5, bar.get_y() + bar.get_height() / 2, f"{percentage:.1f}%", va='center')
     
@@ -104,8 +104,9 @@ def plot_edge_histograms(graph_edges, matrix, max_value, manipulated_graph_edges
     conclusion_text3 = f"Total amount of 'fake' edges removed = {fake_edges_removed}, thus the success rate of this run is {successRate:.3f}%"
     conclusion_text = f"{conclusion_text1}\n{conclusion_text2}\n{conclusion_text3}"
     # Use figtext to place text outside the axes, under the bars
-    plt.figtext(0.5, -0.1, conclusion_text, ha='center', va='top', fontsize=12, color='black', wrap=True)
-    
+    plt.figtext(0.5, -0.05, conclusion_text, ha='center', va='top', fontsize=12, color='black', wrap=True)
+    plt.subplots_adjust(bottom=0.2, left=0.1, right=0.9, top=0.8, wspace=0.5, hspace=0.5)
+    plt.tight_layout()
     plt.savefig(os.path.join(output_dir, "graph_edges_distribution_BarChart.png"))
     
     # # Plot the pie chart
