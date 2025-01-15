@@ -1,4 +1,6 @@
+import io
 import sys
+import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from tkinter.scrolledtext import ScrolledText
@@ -6,20 +8,48 @@ from config import Config
 import main_code
 
 
-class StdoutRedirector:
-    def __init__(self, text_widget):
+class BufferedStdoutRedirector:
+    def __init__(self, text_widget, flush_interval=10000):
+        """
+        :param text_widget: The ScrolledText or Text widget for output.
+        :param flush_interval: Interval in milliseconds for flushing the buffer (e.g. 10000 = 10 seconds).
+        """
         self.text_widget = text_widget
+        self.buffer = io.StringIO()
+        self.flush_interval = flush_interval
+
+        # Schedule the first flush
+        self.text_widget.after(self.flush_interval, self.periodic_flush)
 
     def write(self, text):
-        if text.strip():
-            self.text_widget.after(0, self._append_text, text)
+        # Accumulate text in the buffer.
+        self.buffer.write(text)
 
     def flush(self):
+        """
+        We do nothing in flush() because we handle flushing ourselves
+        periodically in periodic_flush().
+        """
         pass
 
-    def _append_text(self, text):
-        self.text_widget.insert(tk.END, text)
-        self.text_widget.see(tk.END)
+    def periodic_flush(self):
+        """
+        This method is called every 'flush_interval' milliseconds.
+        It appends whatever is in the buffer to the ScrolledText widget
+        and then clears the buffer.
+        """
+        output = self.buffer.getvalue()
+        if output:
+            # Insert text into the widget in the main (UI) thread
+            self.text_widget.insert(tk.END, output)
+            self.text_widget.see(tk.END)
+
+            # Clear the buffer for next round
+            self.buffer.truncate(0)
+            self.buffer.seek(0)
+
+        # Schedule the next flush
+        self.text_widget.after(self.flush_interval, self.periodic_flush)
 
 
 class App(tk.Tk):
@@ -109,9 +139,9 @@ class App(tk.Tk):
         self.log_text.pack(fill="both", expand=True)
 
     def _redirect_console_output(self):
-        # Create redirectors for stdout and stderr
-        stdout_redirector = StdoutRedirector(self.log_text)
-        stderr_redirector = StdoutRedirector(self.log_text)
+        # Create redirectors for stdout and stderr with a 10-second flush interval
+        stdout_redirector = BufferedStdoutRedirector(self.log_text, flush_interval=10000)
+        stderr_redirector = BufferedStdoutRedirector(self.log_text, flush_interval=10000)
 
         sys.stdout = stdout_redirector
         sys.stderr = stderr_redirector
@@ -156,11 +186,19 @@ class App(tk.Tk):
         main_code.EDGES_TXT = self.edges_file_path.get()
         main_code.LABELS_TXT = self.labels_file_path.get()
 
+        worker_thread = threading.Thread(target=self._threaded_main_code, daemon=True)
+        worker_thread.start()
 
+    def _threaded_main_code(self):
+        """
+        Actually runs main_code.main() in a worker thread, so the UI doesn't freeze.
+        If there's an exception, schedule a messagebox in the main thread.
+        """
         try:
             main_code.main()
         except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {e}")
+            # Show error message in the main thread
+            self.log_text.after(0, lambda: messagebox.showerror("Error", f"An error occurred: {e}"))
 
     def save_config(self):
         """Save current Config settings to a JSON file using Config.save_to_json."""

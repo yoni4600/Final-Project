@@ -23,9 +23,9 @@ class ResearchPlan:
         similarity_matrix_list = []
 
         for i in range(self.K):
-            print(f"\nIteration number {i+1} of total {self.K} iterations:")
+            print(f"\nIteration number {i+1} of total {self.K} iterations:\n")
             original_graph = self.g.copy()
-            print(f"\tRandomly remove {self.p}% of the graph's edges")
+            print(f"\tRandomly remove {self.p}% of the graph's edges\n")
             g_tag = RemoveEdges(original_graph, self.p)
 
             # loads the model with the embedding method and coarsening method
@@ -37,14 +37,14 @@ class ResearchPlan:
             )
             # start the process and receive the embedding matrix
             embedding_matrix = model.train().get_embeddings()
-            print("\tCalculating the similarity matrix based on threshold 1 ..")
+            print("\tCalculating the similarity matrix based on threshold 1 ..\n")
             similarity_matrix = CalculateCosineSimilarity(embedding_matrix, self.t1)
             similarity_matrix_list.append(similarity_matrix)
 
-        print("Finished the K iterations")
-        print("Calculating the statistical matrix ..")
+        print("Finished the K iterations\n")
+        print("Calculating the statistical matrix ..\n")
         M_Stat, summed_matrices = CalculateStatistics(similarity_matrix_list, self.K)
-        print("Refining the graph based on threshold 2 ..")
+        print("Refining the graph based on threshold 2 ..\n")
         G_R = RefineGraph(self.g.copy(), M_Stat, self.t2)
         return G_R, summed_matrices
 

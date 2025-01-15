@@ -18,7 +18,7 @@ class MLNE(object):
     #     return PCA(n_components=dimension).fit_transform(embeddings)
 
     def train(self):
-        print("\tStart MLNE Algorithm ..")
+        print("\tStart MLNE Algorithm ..\n")
         # """ START OF ALGORITHM 1 """
         # graph coarsening process
         coarsening = self.Coarsening(self.original_graph)
@@ -27,7 +27,7 @@ class MLNE(object):
         if len(coarsening.graphs) == 1:
             coarsening.recursive_merge()
 
-        print("\tFinish executing Algorithm 4 - Coarsening ..")
+        print("\tFinish executing Algorithm 4 - Coarsening ..\n")
         # Retrieve the list of coarsened graphs and their mappings to the original graph, keeps the order of supernodes
         graphs = coarsening.graphs  # graph pyramid
         mappings = coarsening.make_mappings_to_original_graph()
@@ -54,10 +54,10 @@ class MLNE(object):
         # Set dimensions for each graph to be trained
         dimensions = [self.dimension for g in train_graphs]
 
-        print("\tStart the embedding on each layer of the pyramid ..")
+        print("\tStart the embedding on each layer of the pyramid ..\n")
         # Train embedding on each selected graph layer
         for i, (graph, mapping, dimension) in enumerate(zip(train_graphs, train_mappings, dimensions)):
-            print('\tTraining graph#{} #nodes={} #edges={}'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
+            print('\tTraining graph#{} #nodes={} #edges={}\n'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
             # Reverse the mapping for embedding assignment
             rev_mapping = coarsening.reverse_mapping(mapping)
             # Initialize and train the embedding model
@@ -72,7 +72,7 @@ class MLNE(object):
             self.embeddings = np.concatenate([self.embeddings, embeddings], axis=1)
 
         # self.embeddings = self.dimension_reduction(self.embeddings, self.dimension)
-        print("\tFinish executing MLNE Algorithm ..")
+        print("\tFinish executing MLNE Algorithm ..\n")
         return self
         # """ END OF ALGORITHM 1 """
 

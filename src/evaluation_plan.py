@@ -8,6 +8,8 @@ from config import Config
 from datetime import datetime
 
 BaseDir =""
+
+
 class EvaluationPlan:
     
     def __init__(self, g, d, t1, t2, p, K):
@@ -19,14 +21,14 @@ class EvaluationPlan:
         self.K = K
 
     def EvaluationPlanAlg(self):
-        print(f"Adding {self.p}% randomly edges to the graph")
+        print(f"Adding {self.p}% randomly edges to the graph\n")
         g_tag, e_tag = AddingEdges(self.g, self.p)
         RP = ResearchPlan(g_tag, self.d, self.t1, self.t2, self.p, self.K)
-        print("Start Research plan algorithm ..")
+        print("Start Research plan algorithm ..\n")
         G_R, summed_matrices = RP.ResearchPlanAlg()
         GR_edges = G_R.edges
 
-        print("Calculating the success rate ..")
+        print("Calculating the success rate ..\n")
         count = 0
         for u, v in e_tag:
             if (u, v) not in GR_edges:
@@ -35,7 +37,7 @@ class EvaluationPlan:
         try:
             plot_edge_histograms(self.g.edges, summed_matrices, self.K, g_tag.edges, e_tag , GR_edges, count)
         except Exception as e:
-            print(f"An error occurred while plotting histograms: {str(e)}")
+            print(f"An error occurred while plotting histograms: {str(e)}\n")
             import traceback
             traceback.print_exc()
 

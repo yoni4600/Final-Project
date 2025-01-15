@@ -78,7 +78,7 @@ class BaseCoarsening(object):
 
     ########### START ALGORITHM 4 ############
     def recursive_merge(self):
-        print("\tStart executing Algorithm 4 - Coarsening ..")
+        print("\tStart executing Algorithm 4 - Coarsening ..\n")
         edge_threshold = self.original_graph.number_of_edges() * self.threshold
         node_threshold = self.original_graph.number_of_nodes() * self.threshold
         while True:

@@ -18,8 +18,8 @@ def main():
     if not LABELS_TXT:
         LABELS_TXT = "{}/{}_labels.txt".format(DATASET_DIR, "cora")
 
-    print(f"Loading edgelist from: {EDGES_TXT}")
-    print(f"Loading labels from: {LABELS_TXT}")
+    print(f"Loading edgelist from: {EDGES_TXT}\n")
+    print(f"Loading labels from: {LABELS_TXT}\n")
 
     g, labels = load_edgelist(EDGES_TXT), load_labels(LABELS_TXT)
     g = nx.convert_node_labels_to_integers(g)
@@ -32,9 +32,9 @@ def main():
         p=Config.PERCENTAGE,
         K=Config.K
     )
-    print("Start Evaluation plan algorithm ..")
+    print("Start Evaluation plan algorithm ..\n")
     successRate = EP.EvaluationPlanAlg()
-    print("The success rate of this run is: " + str(successRate))
+    print("The success rate of this run is: " + str(successRate) + '\n')
 
 
 if __name__ == "__main__":
