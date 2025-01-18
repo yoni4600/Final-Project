@@ -15,6 +15,7 @@ class Config:
     NODE2VEC_P = 1
     NODE2VEC_Q = 1
     PYRAMID_SCALES = 6
+    TQDM_WRITER = None
 
     @classmethod
     def save_to_json(cls, filename):

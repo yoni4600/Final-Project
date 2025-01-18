@@ -2,8 +2,9 @@
 from collections import defaultdict, Counter
 import numpy as np
 from tqdm import tqdm
-
 from necython import window_sampling, skip_sampling
+from src.config import Config
+
 
 class NegativeSampling(object):
 
@@ -13,7 +14,6 @@ class NegativeSampling(object):
         self.neg_ratio = neg_ratio
         self.neg_power = neg_power
         self.down_sampling = down_sampling
-
         self.samples = None
 
     def init_negative_probs(self, sequences):
@@ -39,9 +39,14 @@ class NegativeSampling(object):
         neg_cnt = pos_cnt*self.neg_ratio
         neg_samples = np.random.choice(len(self.neg_probs), size=total_cnt*self.neg_ratio, p=self.neg_probs)
 
-        bar = tqdm(total=total_cnt*(self.neg_ratio+1))
-        bar.set_description('  Training')
-        
+        bar = tqdm(
+            total=total_cnt * (self.neg_ratio + 1),
+            file=Config.TQDM_WRITER,
+            mininterval=1.0,
+            desc="\nTraining:",
+            ascii="  #",
+        )
+
         start_idx = 0
         end_idx = min(start_idx+pos_cnt, total_cnt)
         while start_idx<end_idx:
@@ -93,9 +98,15 @@ class TripletSampling(object):
         total = len(samples)
         neg_samples = np.random.choice(len(self.neg_probs), size=total, p=self.neg_probs)
 
-        bar = tqdm(total=total)
+        bar = tqdm(
+            total=total,
+            file=Config.TQDM_WRITER,
+            mininterval=1.0,
+            desc="\nTraining:",
+            ascii="  #",
+        )
         bar.set_description('  Training')
-        
+
         start_idx = 0
         end_idx = min(start_idx+self.batch_size, total)
         while start_idx<end_idx:
