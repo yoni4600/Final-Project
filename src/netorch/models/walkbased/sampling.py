@@ -3,7 +3,7 @@ from collections import defaultdict, Counter
 import numpy as np
 from tqdm import tqdm
 from necython import window_sampling, skip_sampling
-from src.config import Config
+from config import Config
 
 
 class NegativeSampling(object):

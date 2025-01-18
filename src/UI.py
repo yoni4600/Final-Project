@@ -99,6 +99,12 @@ class App(tk.Tk):
 
         self._redirect_console_output()
         self._create_help_label()
+        
+        self.stop_event = threading.Event()
+        self.worker_thread = None
+
+        # Handle the close event
+        self.protocol("WM_DELETE_WINDOW", self.on_close)
 
     def _create_help_label(self):
         help_label = tk.Label(self, text="?", font=("Arial", 16, "bold"), fg="blue", cursor="hand2")
@@ -251,6 +257,7 @@ class App(tk.Tk):
         # Store it in the Config as a global reference
         Config.TQDM_WRITER = tqdm_writer
 
+        self.stop_event.clear()
         # Start the worker thread (no need to pass tqdm_writer as an arg)
         worker_thread = threading.Thread(
             target=self._threaded_main_code,
@@ -264,11 +271,28 @@ class App(tk.Tk):
         If there's an exception, show it via messagebox in the main thread.
         """
         try:
-            # We just call main_code.main() -- it will use Config.TQDM_WRITER if needed.
-            main_code.main()
+            while not self.stop_event.is_set():
+                main_code.main()  # Your main_code logic
+                break  # Exit after one run (remove this line if main_code.main() should repeat)
         except Exception as e:
             self.log_text.after(0, lambda: messagebox.showerror("Error", f"An error occurred: {e}"))
+        finally:
+            self.stop_event.set()  # Ensure the event is set when thread exits
 
+    def on_close(self):
+            """Handle the window close event to stop the worker thread."""
+            if self.worker_thread and self.worker_thread.is_alive():
+                # Set the stop event to signal the worker thread
+                self.stop_event.set()
+                self.worker_thread.join()  # Wait for the thread to finish
+
+            # Restore stdout and stderr (optional)
+            sys.stdout = sys.__stdout__
+            sys.stderr = sys.__stderr__
+
+            # Destroy the UI
+            self.destroy()
+            
     def save_config(self):
         """Save current Config settings to a JSON file using Config.save_to_json."""
         file_path = filedialog.asksaveasfilename(
