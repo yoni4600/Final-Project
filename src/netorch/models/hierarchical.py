@@ -6,7 +6,7 @@ from config import Config
 
 class MLNE(object):
 
-    def __init__(self, graph, dimension, Model, Coarsening, num_scales=Config.PYRAMID_SCALES):
+    def __init__(self, graph, dimension, Model, Coarsening, num_scales):
         self.original_graph = graph
         self.dimension = dimension
         self.Model = Model
@@ -57,7 +57,7 @@ class MLNE(object):
         print("\tStart the embedding on each layer of the pyramid ..\n")
         # Train embedding on each selected graph layer
         for i, (graph, mapping, dimension) in enumerate(zip(train_graphs, train_mappings, dimensions)):
-            print('\tTraining graph#{} #nodes={} #edges={}\n'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
+            print('\n\tTraining graph#{} #nodes={} #edges={}\n'.format(i, graph.number_of_nodes(), graph.number_of_edges()))
             # Reverse the mapping for embedding assignment
             rev_mapping = coarsening.reverse_mapping(mapping)
             # Initialize and train the embedding model
@@ -72,7 +72,7 @@ class MLNE(object):
             self.embeddings = np.concatenate([self.embeddings, embeddings], axis=1)
 
         # self.embeddings = self.dimension_reduction(self.embeddings, self.dimension)
-        print("\tFinish executing MLNE Algorithm ..\n")
+        print("\n\tFinish executing MLNE Algorithm ..\n")
         return self
         # """ END OF ALGORITHM 1 """
 

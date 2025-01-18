@@ -43,7 +43,7 @@ class NegativeSampling(object):
             total=total_cnt * (self.neg_ratio + 1),
             file=Config.TQDM_WRITER,
             mininterval=1.0,
-            desc="\nTraining:",
+            desc="\n\tTraining:",
             ascii="  #",
         )
 

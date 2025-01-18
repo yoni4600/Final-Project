@@ -85,6 +85,7 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Final-Project")
+        self.geometry("1000x700")
 
         # Store file paths for edges and labels
         self.edges_file_path = tk.StringVar()

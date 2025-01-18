@@ -34,6 +34,7 @@ class ResearchPlan:
                 dimension=self.d,
                 Model=lambda graph, dimension: Node2Vec(graph, dimension=dimension, batch_size=Config.NODE2VEC_BATCH_SIZE, iterations=Config.NODE2VEC_ITERATIONS, p=Config.NODE2VEC_P, q=Config.NODE2VEC_Q),
                 Coarsening=lambda graph: ACOCoarsening(graph, phe_power=Config.ALPHA, iterations=Config.ACO_COARSENING_ITERATIONS),
+                num_scales=Config.PYRAMID_SCALES
             )
             # start the process and receive the embedding matrix
             embedding_matrix = model.train().get_embeddings()

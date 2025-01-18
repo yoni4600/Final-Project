@@ -1,6 +1,7 @@
 import json
 import os
 
+
 class Config:
     # Class attributes
     DIMENSION = 128
@@ -8,8 +9,8 @@ class Config:
     TRESHOLD2 = 60
     PERCENTAGE = 30
     K = 20
-    NODE2VEC_ITERATIONS = 3
-    ACO_COARSENING_ITERATIONS = 2
+    NODE2VEC_ITERATIONS = 1
+    ACO_COARSENING_ITERATIONS = 1
     ALPHA = 0.5
     NODE2VEC_BATCH_SIZE = 5000
     NODE2VEC_P = 1
@@ -24,7 +25,8 @@ class Config:
         for key, value in vars(cls).items():
             # Skip private attributes, methods, and classmethods
             if (not key.startswith('__') and 
-                not callable(value) and 
+                not callable(value) and
+                key != "TQDM_WRITER" and
                 not isinstance(value, classmethod)):
                 config_dict[key] = value
                 
@@ -43,4 +45,5 @@ class Config:
             
         # Update class attributes
         for key, value in config_dict.items():
-            setattr(cls, key, value)
+            if key != "TQDM_WRITER":
+                setattr(cls, key, value)
