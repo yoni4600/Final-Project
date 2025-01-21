@@ -101,59 +101,16 @@ def plot_edge_histograms(graph_edges, matrix, max_value, manipulated_graph_edges
         if(u,v) not in fake_edges and (u,v) in refined_graph_edges:
             count += 1
     real_edges_removed = len(graph_edges) - count
-    conclusion_text2 =f"Total amout of edges removed from the REAL Graph = {real_edges_removed}, equals to {(real_edges_removed / len(graph_edges)) * 100}%"
+    conclusion_text2 =f"Total amount of edges removed from the REAL Graph = {real_edges_removed}, equals to {(real_edges_removed / len(graph_edges)) * 100}%"
     successRate = (fake_edges_removed / len(fake_edges)) * 100
     conclusion_text3 = f"Total amount of 'fake' edges removed = {fake_edges_removed}, thus the success rate of this run is {successRate:.3f}%"
     conclusion_text = f"{conclusion_text1}\n{conclusion_text2}\n{conclusion_text3}"
+    print(conclusion_text)
     # Use figtext to place text outside the axes, under the bars
-    plt.figtext(0.5, -0.05, conclusion_text, ha='center', va='top', fontsize=12, color='black', wrap=True)
-    plt.subplots_adjust(bottom=0.2, left=0.1, right=0.9, top=0.8, wspace=0.5, hspace=0.5)
+    plt.subplots_adjust(bottom=0.2, left=0.25, right=0.9, top=0.8, wspace=0.5, hspace=0.5)
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, "graph_edges_distribution_BarChart.png"))
     
-    # # Plot the pie chart
-    # plt.figure(figsize=(8, 8))
-    # plt.pie(
-    #     percentages,
-    #     labels=[f"Value {val}" for val in unique],
-    #     autopct='%1.1f%%',  # Format percentages
-    #     startangle=90,      # Rotate the chart for better appearance
-    #     colors=plt.cm.tab10.colors[:len(unique)]  # Use different colors
-    # )
-    # plt.savefig(os.path.join(output_dir, "graph_edges_distribution_PieChart.png"))
-    # Calculate the number of blocks
-    
-    
-    # num_blocks = (total_edges + block_size - 1) // block_size  # Ceiling division
-
-    # # Iterate through blocks of edges
-    # for block_idx in range(num_blocks):
-    #     start_idx = block_idx * block_size
-    #     end_idx = min(start_idx + block_size, total_edges)
-    #     block_edges = edges[start_idx:end_idx]
-    #     values = [matrix[u][v] for u, v in block_edges]
-
-    #     # Create the histogram for the current block
-    #     plt.figure(figsize=(14, 8))
-    #     plt.bar(
-    #         range(len(block_edges)),
-    #         values,
-    #         color="blue",
-    #         edgecolor="black",
-    #         alpha=0.75
-    #     )
-    #     plt.title(f"{title} (Block {block_idx + 1}/{num_blocks})")
-    #     plt.xlabel("Edges (first_node, second_node)")
-    #     plt.ylabel(f"Cell Values (0 to {max_value})")
-    #     plt.xticks(rotation=90, fontsize=8)
-    #     plt.grid(axis="y", linestyle="--", alpha=0.7)
-    #     plt.tight_layout()
-
-
-    #     # Create the file path
-    #     filename = os.path.join(output_dir, f"{title.replace(' ', '_')}_block_{block_idx + 1}.png")
-    #     plt.savefig(filename)
-    #     plt.close()
 
 
 def AddingEdges(g, p):

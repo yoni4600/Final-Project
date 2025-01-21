@@ -1,5 +1,6 @@
 import json
 import os
+from enum import Enum
 
 
 class Config:
@@ -17,6 +18,15 @@ class Config:
     NODE2VEC_Q = 1
     PYRAMID_SCALES = 6
     TQDM_WRITER = None
+
+    class Subject(Enum):
+        Rule_Learning = 0
+        Reinforcement_Learning = 1
+        Probabilistic_Methods = 2
+        Theory = 3
+        Neural_Networks = 4
+        Genetic_Algorithms = 5
+        Case_Based = 6
 
     @classmethod
     def save_to_json(cls, filename):
