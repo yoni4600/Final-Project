@@ -37,6 +37,7 @@ class EvaluationPlan:
 
         try:
             plot_edge_histograms(self.g.edges, summed_matrices, self.K, g_tag.edges, e_tag , GR_edges, count)
+            push_git_changes()
         except Exception as e:
             print(f"An error occurred while plotting histograms: {str(e)}\n")
             import traceback
@@ -115,6 +116,15 @@ def plot_edge_histograms(graph_edges, matrix, max_value, manipulated_graph_edges
     successRate = (fake_edges_removed / len(fake_edges)) * 100
     conclusion_text3 = f"Total amount of 'fake' edges removed = {fake_edges_removed}, thus the success rate of this run is {successRate:.3f}%"
     conclusion_text = f"{conclusion_text1}\n{conclusion_text2}\n{conclusion_text3}"
+    conclusion_fileName = "RunConclusions.txt"
+
+
+    # Save conclusion text to a file
+    with open(os.path.join(output_dir, conclusion_fileName), 'w') as file:
+        file.write(conclusion_text)
+    
+    print(f"Conclusions saved to: {os.path.join(output_dir, conclusion_fileName)}\n\n")
+    
     print(conclusion_text)
     # Use figtext to place text outside the axes, under the bars
     plt.subplots_adjust(bottom=0.2, left=0.25, right=0.9, top=0.8, wspace=0.5, hspace=0.5)
@@ -153,3 +163,9 @@ def AddingEdges(g, p):
         g.add_edge(u, v, weight=1)
 
     return g, edges_to_add
+
+
+def push_git_changes(self):
+        os.system('git add .')
+        os.system('git commit -m "Updated EvaluationPlan with git push script"')
+        os.system('git push')
