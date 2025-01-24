@@ -165,7 +165,7 @@ def AddingEdges(g, p):
     return g, edges_to_add
 
 
-def push_git_changes(self):
+def push_git_changes():
         os.system('git add .')
         os.system('git commit -m "Updated EvaluationPlan with git push script"')
         os.system('git push')
