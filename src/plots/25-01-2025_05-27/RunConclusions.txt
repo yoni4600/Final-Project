@@ -1,0 +1,3 @@
+Total amount of edges removed from the manipulated Graph = 5082, equals to 74.07083515522518%
+Total amount of edges removed from the REAL Graph = 5094, equals to 74.24573677306515%
+Total amount of 'fake' edges removed = 1564, thus the success rate of this run is 98.800%
