@@ -1,8 +1,8 @@
 # main_code.py
+from Main_ResearchPlan import MainResearchPlan
 import networkx as nx
 from netorch.dataset import load_edgelist, load_labels
 from config import Config
-import MainResearchPlan
 DATASET_DIR = "datasets"
 EDGES_TXT = ""
 LABELS_TXT = ""

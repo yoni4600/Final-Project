@@ -12,7 +12,7 @@ BaseDir =""
 
 
 class MainResearchPlan:
-       
+    
     def __init__(self, g, d, t1, t2, p, K):
         self.g = g
         self.d = d
