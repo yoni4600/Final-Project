@@ -1,9 +1,8 @@
 # main_code.py
 import networkx as nx
 from netorch.dataset import load_edgelist, load_labels
-from evaluation_plan import EvaluationPlan
 from config import Config
-
+import MainResearchPlan
 DATASET_DIR = "datasets"
 EDGES_TXT = ""
 LABELS_TXT = ""
@@ -24,7 +23,7 @@ def main():
     g, labels = load_edgelist(EDGES_TXT), load_labels(LABELS_TXT)
     g = nx.convert_node_labels_to_integers(g)
 
-    EP = EvaluationPlan(
+    m = MainResearchPlan(
         g,
         d=Config.DIMENSION,
         t1=Config.TRESHOLD1,
@@ -32,9 +31,7 @@ def main():
         p=Config.PERCENTAGE,
         K=Config.K
     )
-    print("Start Evaluation plan algorithm ..\n")
-    successRate = EP.EvaluationPlanAlg()
-    print("The success rate of this run is: " + str(successRate) + '\n')
+    m.MainResearchPlanAlg()
 
 
 if __name__ == "__main__":

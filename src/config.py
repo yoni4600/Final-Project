@@ -5,7 +5,7 @@ from enum import Enum
 
 class Config:
     # Class attributes
-    DIMENSION = 512
+    DIMENSION = 256
     TRESHOLD1 = 0.9
     TRESHOLD2 = 30
     PERCENTAGE = 30
@@ -13,7 +13,7 @@ class Config:
     NODE2VEC_ITERATIONS = 3
     ACO_COARSENING_ITERATIONS = 2
     ALPHA = 0.5
-    NODE2VEC_BATCH_SIZE = 50000
+    NODE2VEC_BATCH_SIZE = 150000
     NODE2VEC_P = 1
     NODE2VEC_Q = 1
     PYRAMID_SCALES = 8

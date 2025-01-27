@@ -9,6 +9,7 @@ from config import Config
 import main_code
 
 
+
 class BufferedStdoutRedirector:
     def __init__(self, text_widget, flush_interval=10000):
         """
