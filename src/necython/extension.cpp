@@ -19,7 +19,7 @@
         ],
         "include_dirs": [
             "necython",
-            "C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\numpy\\core\\include",
+            "\\\\CTXE-UPM.brdeng.ac\\CTXFR$\\Itamar.Kraus.BRDENG\\AppData\\Roaming\\Python\\Python39\\site-packages\\numpy\\core\\include",
             "necython/cpp"
         ],
         "language": "c++",
@@ -2630,7 +2630,7 @@ static const char __pyx_k_Walker___reduce_cython[] = "Walker.__reduce_cython__";
 static const char __pyx_k_necython_extension_pyx[] = "necython\\extension.pyx";
 static const char __pyx_k_set_transition_weights[] = "set_transition_weights";
 static const char __pyx_k_Graph___setstate_cython[] = "Graph.__setstate_cython__";
-static const char __pyx_k_No_edges_found_in_graph[] = "No edges found in graph.";
+static const char __pyx_k_No_edges_found_in_graph[] = "No edges found in graph.\n";
 static const char __pyx_k_Walker___setstate_cython[] = "Walker.__setstate_cython__";
 static const char __pyx_k_BiasedWalker_simulate_walk[] = "BiasedWalker.simulate_walk";
 static const char __pyx_k_BiasedWalker___reduce_cython[] = "BiasedWalker.__reduce_cython__";
@@ -2638,7 +2638,7 @@ static const char __pyx_k_Walker_set_transition_weights[] = "Walker.set_transiti
 static const char __pyx_k_init_distributions_from_graph[] = "init_distributions_from_graph";
 static const char __pyx_k_BiasedWalker___setstate_cython[] = "BiasedWalker.__setstate_cython__";
 static const char __pyx_k_BiasedWalker_init_distributions[] = "BiasedWalker.init_distributions_from_graph";
-static const char __pyx_k_Start_executing_Algorithm_2_ACW[] = "\tStart executing Algorithm 2 - ACWalk ..";
+static const char __pyx_k_Start_executing_Algorithm_2_ACW[] = "\tStart executing Algorithm 2 - ACWalk ..\n";
 static const char __pyx_k_Walker_init_distributions_from_g[] = "Walker.init_distributions_from_graph";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 /* #### Code section: decls ### */
@@ -7607,7 +7607,7 @@ static PyObject *__pyx_pf_8necython_2skip_sampling(CYTHON_UNUSED PyObject *__pyx
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("\tStart executing Algorithm 2 - ACWalk ..")
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  */
 
@@ -7834,7 +7834,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
   /* "necython/extension.pyx":89
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("\tStart executing Algorithm 2 - ACWalk ..")             # <<<<<<<<<<<<<<
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")             # <<<<<<<<<<<<<<
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  * 
  */
@@ -7844,7 +7844,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
 
   /* "necython/extension.pyx":90
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("\tStart executing Algorithm 2 - ACWalk ..")
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)             # <<<<<<<<<<<<<<
  * 
  *     cdef list edge_list = []
@@ -7946,7 +7946,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  *         edge_iter.increment()  # Call increment() explicitly
  * 
  *     if len(edge_list) == 0:             # <<<<<<<<<<<<<<
- *         print("No edges found in graph.")
+ *         print("No edges found in graph.\n")
  *         return []
  */
   __pyx_t_6 = __Pyx_PyList_GET_SIZE(__pyx_v_edge_list); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 103, __pyx_L1_error)
@@ -7956,7 +7956,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
     /* "necython/extension.pyx":104
  * 
  *     if len(edge_list) == 0:
- *         print("No edges found in graph.")             # <<<<<<<<<<<<<<
+ *         print("No edges found in graph.\n")             # <<<<<<<<<<<<<<
  *         return []
  * 
  */
@@ -7966,7 +7966,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
 
     /* "necython/extension.pyx":105
  *     if len(edge_list) == 0:
- *         print("No edges found in graph.")
+ *         print("No edges found in graph.\n")
  *         return []             # <<<<<<<<<<<<<<
  * 
  *     phe = [(u, v, g.weight(u, v)) for u, v in edge_list]
@@ -7982,7 +7982,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  *         edge_iter.increment()  # Call increment() explicitly
  * 
  *     if len(edge_list) == 0:             # <<<<<<<<<<<<<<
- *         print("No edges found in graph.")
+ *         print("No edges found in graph.\n")
  *         return []
  */
   }
@@ -8108,7 +8108,7 @@ static PyObject *__pyx_pf_8necython_4aco_walk(CYTHON_UNUSED PyObject *__pyx_self
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("\tStart executing Algorithm 2 - ACWalk ..")
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  */
 
@@ -8912,7 +8912,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "necython/extension.pyx":89
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):
- *     print("\tStart executing Algorithm 2 - ACWalk ..")             # <<<<<<<<<<<<<<
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")             # <<<<<<<<<<<<<<
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  * 
  */
@@ -8923,7 +8923,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "necython/extension.pyx":104
  * 
  *     if len(edge_list) == 0:
- *         print("No edges found in graph.")             # <<<<<<<<<<<<<<
+ *         print("No edges found in graph.\n")             # <<<<<<<<<<<<<<
  *         return []
  * 
  */
@@ -9145,7 +9145,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("\tStart executing Algorithm 2 - ACWalk ..")
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  */
   __pyx_tuple__37 = PyTuple_Pack(16, __pyx_n_s_graph, __pyx_n_s_num_walks, __pyx_n_s_max_step, __pyx_n_s_num_iterations, __pyx_n_s_alpha, __pyx_n_s_evaporate, __pyx_n_s_num_threads, __pyx_n_s_g, __pyx_n_s_edge_list, __pyx_n_s_edge_view, __pyx_n_s_edge_iter, __pyx_n_s_edge_end, __pyx_n_s_edge, __pyx_n_s_phe, __pyx_n_s_u, __pyx_n_s_v); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 88, __pyx_L1_error)
@@ -9877,7 +9877,7 @@ if (!__Pyx_RefNanny) {
  *     return SkipSampling(sequences, distance, down_sampling, shuffle)
  * 
  * def aco_walk(Graph graph, size_t num_walks, size_t max_step, size_t num_iterations, double alpha, double evaporate, size_t num_threads):             # <<<<<<<<<<<<<<
- *     print("\tStart executing Algorithm 2 - ACWalk ..")
+ *     print("\tStart executing Algorithm 2 - ACWalk ..\n")
  *     g = ACOWalk(graph.c_graph, num_walks, max_step, num_iterations, alpha, evaporate, num_threads)
  */
   __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_8necython_5aco_walk, 0, __pyx_n_s_aco_walk, NULL, __pyx_n_s_necython, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
