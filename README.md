@@ -31,6 +31,6 @@ $ python UI.py
 ## Docs
 
 [User Manual](https://github.com/yoni4600/Final-Project/blob/master/UserManual.pdf)
-[Programmer Manual](https://github.com/yoni4600/Final-Project/blob/master/ProgrammerManual.pdf)
+[Programmer Manual](https://github.com/yoni4600/Final-Project/blob/master/programmerManual.pdf)
 
 
