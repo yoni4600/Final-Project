@@ -22,7 +22,7 @@ $ pip install -r requirements.txt
 $ python setup.py build_ext --inplace
 ```
 
-Run the application: [UI.py](https://github.com/yoni4600/Final-Project/blob/master/src/UI.py)
+Run the application: [UI.py](https://github.com/yoni4600/Final-Project/blob/main/src/UI.py)
 
 ```
 $ python UI.py
@@ -30,7 +30,7 @@ $ python UI.py
 
 ## Docs
 
-[User Manual](https://github.com/yoni4600/Final-Project/blob/master/UserManual.pdf)
-[Programmer Manual](https://github.com/yoni4600/Final-Project/blob/master/programmerManual.pdf)
+[User Manual](https://github.com/yoni4600/Final-Project/blob/main/UserManual.pdf)
+[Programmer Manual](https://github.com/yoni4600/Final-Project/blob/main/programmerManual.pdf)
 
 
