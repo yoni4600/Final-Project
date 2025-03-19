@@ -2,6 +2,9 @@ import csv
 import datetime
 import os
 import random
+
+import networkx as nx
+
 from research_plan import ResearchPlan
 import numpy as np
 import matplotlib.pyplot as plt
@@ -28,13 +31,43 @@ class MainResearchPlan:
         GR_edges = G_R.edges
 
         try:
+            visualize_graphs(self.g, G_R, "/plots")
             plot_edge_histograms(self.g.edges, summed_matrices, self.K, GR_edges, )
-            push_git_changes()
+            #push_git_changes()
         except Exception as e:
             print(f"An error occurred while plotting histograms: {str(e)}\n")
             import traceback
             traceback.print_exc()
 
+
+def visualize_graphs(full_graph, refined_graph, output_dir):
+    """
+    Visualizes the full graph and the refined graph using NetworkX and Matplotlib
+    with minimal overhead. Only a title is added.
+    """
+    # Visualize full graph
+    plt.figure(figsize=(12, 12))
+    pos_full = nx.spring_layout(full_graph, seed=42)  # fixed seed for reproducibility
+    nx.draw_networkx_nodes(full_graph, pos_full, node_size=10, node_color='blue', alpha=0.6)
+    nx.draw_networkx_edges(full_graph, pos_full, alpha=0.4)
+    plt.title("Cora Original Graph", fontsize=16)
+    plt.axis('off')
+    full_graph_path = os.path.join(output_dir, "full_graph_visualization.png")
+    plt.savefig(full_graph_path, bbox_inches='tight')
+    plt.close()
+    print(f"Full graph visualization saved to: {full_graph_path}")
+
+    # Visualize refined graph
+    plt.figure(figsize=(12, 12))
+    pos_refined = nx.spring_layout(refined_graph, seed=42)
+    nx.draw_networkx_nodes(refined_graph, pos_refined, node_size=10, node_color='green', alpha=0.6)
+    nx.draw_networkx_edges(refined_graph, pos_refined, alpha=0.4)
+    plt.title("Refined Graph", fontsize=16)
+    plt.axis('off')
+    refined_graph_path = os.path.join(output_dir, "refined_graph_visualization.png")
+    plt.savefig(refined_graph_path, bbox_inches='tight')
+    plt.close()
+    print(f"Refined graph visualization saved to: {refined_graph_path}")
 
 
 def plot_edge_histograms(graph_edges, matrix, max_value, refined_graph_edges, block_size=250, title="Edge Histogram"):
