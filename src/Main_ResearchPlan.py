@@ -59,7 +59,13 @@ def plot_edge_histograms(graph_edges, matrix, max_value, refined_graph_edges, bl
 
     # Extract values from the matrix based on graph_edges
     values_from_edges = [matrix[i, j] for i, j in graph_edges]
-
+    graph_data_csv_path = os.path.join(base_dir, 'graph_data.csv')
+    with open(graph_data_csv_path,mode='w',newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Edge","Times Restored"])
+        for i,j in graph_edges:
+            writer.writerow([f"({i},{j})",matrix[i,j]])
+            
     # Extract edges with value 0
     edges_with_max_value = [(i, j) for i, j in graph_edges if matrix[i, j] == max_value]
 

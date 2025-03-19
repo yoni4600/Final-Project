@@ -9,14 +9,14 @@ class Config:
     TRESHOLD1 = 0.9
     TRESHOLD2 = 40
     PERCENTAGE = 30
-    K = 30
+    K = 2
     NODE2VEC_ITERATIONS = 3
     ACO_COARSENING_ITERATIONS = 2
     ALPHA = 0.5
     NODE2VEC_BATCH_SIZE = 125000
     NODE2VEC_P = 1
     NODE2VEC_Q = 1
-    PYRAMID_SCALES = 8
+    PYRAMID_SCALES = 1
     TQDM_WRITER = None
 
     class Subject(Enum):
