@@ -31,7 +31,7 @@ class MainResearchPlan:
         GR_edges = G_R.edges
 
         try:
-            visualize_graphs(self.g, G_R, "/plots")
+            visualize_graphs(self.g, G_R, "plots")
             plot_edge_histograms(self.g.edges, summed_matrices, self.K, GR_edges, )
             #push_git_changes()
         except Exception as e:
