@@ -33,7 +33,7 @@ class MainResearchPlan:
         try:
             visualize_graphs(self.g, G_R, "plots")
             plot_edge_histograms(self.g.edges, summed_matrices, self.K, GR_edges, )
-            #push_git_changes()
+            push_git_changes()
         except Exception as e:
             print(f"An error occurred while plotting histograms: {str(e)}\n")
             import traceback
@@ -48,7 +48,7 @@ def visualize_graphs(full_graph, refined_graph, output_dir):
     # Visualize full graph
     plt.figure(figsize=(12, 12))
     pos_full = nx.spring_layout(full_graph, seed=42)  # fixed seed for reproducibility
-    nx.draw_networkx_nodes(full_graph, pos_full, node_size=10, node_color='blue', alpha=0.6)
+    nx.draw_networkx_nodes(full_graph, pos_full, node_size=2, alpha=0.6)
     nx.draw_networkx_edges(full_graph, pos_full, alpha=0.4)
     plt.title("Cora Original Graph", fontsize=16)
     plt.axis('off')
@@ -60,7 +60,7 @@ def visualize_graphs(full_graph, refined_graph, output_dir):
     # Visualize refined graph
     plt.figure(figsize=(12, 12))
     pos_refined = nx.spring_layout(refined_graph, seed=42)
-    nx.draw_networkx_nodes(refined_graph, pos_refined, node_size=10, node_color='green', alpha=0.6)
+    nx.draw_networkx_nodes(refined_graph, pos_refined, node_size=2, alpha=0.6)
     nx.draw_networkx_edges(refined_graph, pos_refined, alpha=0.4)
     plt.title("Refined Graph", fontsize=16)
     plt.axis('off')
