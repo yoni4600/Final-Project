@@ -1,0 +1,1 @@
+Total amount of edges removed from the Graph = 3280, equals to 62.144751799924215%
